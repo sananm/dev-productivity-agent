@@ -139,3 +139,17 @@ class GitHubClient:
 
     def __exit__(self, *_exc: object) -> None:
         self.close()
+
+
+def get_github_client(*, use_cache: bool = True):
+    """Return the GitHub client for the configured mode.
+
+    GITHUB_MODE=fixtures (default) -> offline FakeGitHubClient.
+    GITHUB_MODE=live -> real GitHubClient (requires GITHUB_TOKEN).
+    Both expose the same get / paginate / post interface.
+    """
+    if get_settings().github_mode == "fixtures":
+        from devagent.ingestion.fake_github import FakeGitHubClient
+
+        return FakeGitHubClient(use_cache=use_cache)
+    return GitHubClient(use_cache=use_cache)

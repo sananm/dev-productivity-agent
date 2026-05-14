@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import base64
 
-from devagent.ingestion.github_client import GitHubClient, GitHubError
+from devagent.ingestion.github_client import GitHubError, get_github_client
 from devagent.tools.schemas import (
     FetchFileInput,
     GetPRDiffInput,
@@ -24,7 +24,7 @@ def fetch_file(inp: FetchFileInput) -> ToolResult:
     """Fetch the full contents of a single file from a repo."""
     params = {"ref": inp.ref} if inp.ref else None
     try:
-        with GitHubClient() as gh:
+        with get_github_client() as gh:
             data = gh.get(f"/repos/{inp.repo}/contents/{inp.path}", params=params)
     except GitHubError as exc:
         return _err(str(exc))
@@ -42,7 +42,7 @@ def fetch_file(inp: FetchFileInput) -> ToolResult:
 def search_code(inp: SearchCodeInput) -> ToolResult:
     """Search code in a repo for a keyword or symbol."""
     try:
-        with GitHubClient() as gh:
+        with get_github_client() as gh:
             data = gh.get(
                 "/search/code",
                 params={"q": f"{inp.query} repo:{inp.repo}", "per_page": inp.max_results},
@@ -67,7 +67,7 @@ def list_issues(inp: ListIssuesInput) -> ToolResult:
     if inp.labels:
         params["labels"] = inp.labels
     try:
-        with GitHubClient() as gh:
+        with get_github_client() as gh:
             items = list(
                 gh.paginate(f"/repos/{inp.repo}/issues", params=params, max_items=inp.max_results)
             )
@@ -94,7 +94,7 @@ def list_issues(inp: ListIssuesInput) -> ToolResult:
 def get_pr_diff(inp: GetPRDiffInput) -> ToolResult:
     """Fetch the file-level diff summary for a pull request."""
     try:
-        with GitHubClient() as gh:
+        with get_github_client() as gh:
             pr = gh.get(f"/repos/{inp.repo}/pulls/{inp.number}")
             files = list(
                 gh.paginate(f"/repos/{inp.repo}/pulls/{inp.number}/files", max_items=100)
@@ -123,7 +123,7 @@ def list_commits(inp: ListCommitsInput) -> ToolResult:
     """List recent commits in a repo, optionally scoped to a file path."""
     params = {"path": inp.path} if inp.path else None
     try:
-        with GitHubClient() as gh:
+        with get_github_client() as gh:
             items = list(
                 gh.paginate(f"/repos/{inp.repo}/commits", params=params, max_items=inp.max_results)
             )

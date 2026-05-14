@@ -10,15 +10,16 @@ from __future__ import annotations
 import datetime as dt
 from urllib.parse import urlparse
 
+from llama_index.core.base.embeddings.base import BaseEmbedding
 from llama_index.core.schema import TextNode
-from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.vector_stores.postgres import PGVectorStore
 
 from devagent.config import get_settings
 from devagent.db import migrate
+from devagent.embeddings import get_embedder
 from devagent.ingestion import fetchers
 from devagent.ingestion.chunkers import chunk
-from devagent.ingestion.github_client import GitHubClient
+from devagent.ingestion.github_client import get_github_client
 
 VECTOR_TABLE = "vector_nodes"  # PGVectorStore stores it as data_vector_nodes
 
@@ -47,16 +48,21 @@ def _vector_store() -> PGVectorStore:
     )
 
 
-def _embedder() -> OpenAIEmbedding:
-    settings = get_settings()
-    return OpenAIEmbedding(
-        model=settings.embedding_model,
-        api_key=settings.require_openai(),
-        embed_batch_size=100,
+def _clear_source(repo: str, source_type: str) -> None:
+    """Drop existing rows for a repo+source so re-ingest is idempotent."""
+    from devagent.db.migrate import VECTOR_TABLE, vector_table_exists
+    from devagent.db.session import execute
+
+    if not vector_table_exists():
+        return
+    execute(
+        f"DELETE FROM {VECTOR_TABLE} "
+        f"WHERE metadata_->>'repo' = %s AND metadata_->>'source_type' = %s",
+        (repo, source_type),
     )
 
 
-def _embed_nodes(nodes: list[TextNode], embedder: OpenAIEmbedding) -> list[TextNode]:
+def _embed_nodes(nodes: list[TextNode], embedder: BaseEmbedding) -> list[TextNode]:
     texts = [n.get_content(metadata_mode="none") for n in nodes]
     embeddings = embedder.get_text_embedding_batch(texts, show_progress=False)
     for node, emb in zip(nodes, embeddings):
@@ -78,10 +84,10 @@ def ingest_repo(
     indexed_at = dt.datetime.now(dt.timezone.utc).isoformat()
 
     store = _vector_store()
-    embedder = _embedder()
+    embedder = get_embedder()
     counts: dict[str, int] = {}
 
-    with GitHubClient() as client:
+    with get_github_client() as client:
         for source_type in source_types:
             fetch_fn = SOURCE_FETCHERS[source_type]
             nodes: list[TextNode] = []
@@ -93,6 +99,7 @@ def ingest_repo(
                 counts[source_type] = 0
                 continue
             _embed_nodes(nodes, embedder)
+            _clear_source(repo, source_type)
             store.add(nodes)
             counts[source_type] = len(nodes)
             print(f"[ingest] {source_type}: {len(nodes)} chunks loaded")

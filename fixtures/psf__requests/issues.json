@@ -1,0 +1,342 @@
+[
+  {
+    "number": 6801,
+    "title": "Document the timeout parameter more thoroughly in the Quickstart",
+    "state": "open",
+    "labels": ["documentation", "good first issue"],
+    "user": "docfan",
+    "created_at": "2025-01-12T10:00:00Z",
+    "updated_at": "2025-02-02T14:30:00Z",
+    "body": "The `timeout` argument is only briefly mentioned. New users repeatedly hit hangs because they don't set it. We should explain connect vs read timeouts and recommend always passing one.",
+    "_comments": [
+      {"user": "maintainerA", "body": "Agreed. The advanced docs cover it but the Quickstart should at least link there."}
+    ]
+  },
+  {
+    "number": 6799,
+    "title": "SSLError raised even when verify=False is passed",
+    "state": "open",
+    "labels": ["bug", "SSL"],
+    "user": "tlsuser",
+    "created_at": "2025-01-20T08:15:00Z",
+    "updated_at": "2025-01-28T09:00:00Z",
+    "body": "On a corporate proxy, `requests.get(url, verify=False)` still raises SSLError intermittently. Expected verify=False to fully disable certificate verification.",
+    "_comments": [
+      {"user": "maintainerB", "body": "Can you share the full traceback and your urllib3 version?"},
+      {"user": "tlsuser", "body": "urllib3 2.2.1. Traceback points into adapters.py send()."}
+    ]
+  },
+  {
+    "number": 6795,
+    "title": "Certificate verification fails with custom CA bundle on Windows",
+    "state": "open",
+    "labels": ["bug", "SSL", "Needs Info"],
+    "user": "winadmin",
+    "created_at": "2025-01-05T12:00:00Z",
+    "updated_at": "2025-01-15T16:45:00Z",
+    "body": "Setting REQUESTS_CA_BUNDLE to a custom path is ignored on Windows when the path contains spaces.",
+    "_comments": []
+  },
+  {
+    "number": 6788,
+    "title": "Connection pool exhausted under high concurrency",
+    "state": "open",
+    "labels": ["bug", "performance"],
+    "user": "loadtester",
+    "created_at": "2024-12-18T09:30:00Z",
+    "updated_at": "2025-01-22T11:10:00Z",
+    "body": "When firing hundreds of concurrent requests through a single Session, we see 'connection pool is full' warnings and dropped connections. The HTTPAdapter pool_maxsize default of 10 is too low and hard to discover.",
+    "_comments": [
+      {"user": "maintainerA", "body": "You can raise pool_maxsize by mounting a custom HTTPAdapter. We should document this pattern better."},
+      {"user": "loadtester", "body": "That works, but the default and the warning message could be friendlier."}
+    ]
+  },
+  {
+    "number": 6782,
+    "title": "Add type hints to requests.api module",
+    "state": "open",
+    "labels": ["enhancement", "good first issue"],
+    "user": "typist",
+    "created_at": "2024-12-10T14:00:00Z",
+    "updated_at": "2024-12-20T10:00:00Z",
+    "body": "requests/api.py still lacks complete type annotations. This is a self-contained, beginner-friendly change.",
+    "_comments": []
+  },
+  {
+    "number": 6778,
+    "title": "requests hangs indefinitely when server stops responding mid-body",
+    "state": "open",
+    "labels": ["bug"],
+    "user": "hangvictim",
+    "created_at": "2024-12-01T07:00:00Z",
+    "updated_at": "2025-01-30T13:20:00Z",
+    "body": "Even with a read timeout set, streaming a large response can hang if the server stalls between chunks. The timeout only seems to apply to the initial read.",
+    "_comments": [
+      {"user": "maintainerB", "body": "This is a known urllib3 interaction. The per-read timeout should still fire — needs investigation in adapters.py."}
+    ]
+  },
+  {
+    "number": 6770,
+    "title": "Typo in advanced documentation: 'recieve'",
+    "state": "open",
+    "labels": ["documentation", "good first issue"],
+    "user": "speller",
+    "created_at": "2024-11-22T18:00:00Z",
+    "updated_at": "2024-11-22T18:00:00Z",
+    "body": "docs/user/advanced.rst spells 'receive' as 'recieve' in two places.",
+    "_comments": []
+  },
+  {
+    "number": 6765,
+    "title": "Proxy environment variables ignored when session.trust_env is True",
+    "state": "open",
+    "labels": ["bug", "question"],
+    "user": "proxied",
+    "created_at": "2024-11-15T11:30:00Z",
+    "updated_at": "2024-12-05T09:15:00Z",
+    "body": "HTTPS_PROXY is not picked up in some shells even though trust_env defaults to True.",
+    "_comments": [
+      {"user": "maintainerA", "body": "Likely a casing issue with the env var. Which OS?"}
+    ]
+  },
+  {
+    "number": 6758,
+    "title": "Feature request: expose retry configuration on Session directly",
+    "state": "open",
+    "labels": ["enhancement"],
+    "user": "retryfan",
+    "created_at": "2024-11-01T10:00:00Z",
+    "updated_at": "2024-11-18T15:00:00Z",
+    "body": "Configuring retries currently requires building a urllib3 Retry and mounting an adapter. A Session-level shortcut would help.",
+    "_comments": []
+  },
+  {
+    "number": 6750,
+    "title": "Cookies not persisted across redirects to a different subdomain",
+    "state": "open",
+    "labels": ["bug"],
+    "user": "cookiemonster",
+    "created_at": "2024-10-20T13:00:00Z",
+    "updated_at": "2024-11-10T08:30:00Z",
+    "body": "A Set-Cookie on the first response is dropped when the redirect target is a sibling subdomain, even though the cookie domain allows it.",
+    "_comments": []
+  },
+  {
+    "number": 6742,
+    "title": "Improve error message for invalid URL schemes",
+    "state": "open",
+    "labels": ["enhancement", "good first issue"],
+    "user": "errorpedant",
+    "created_at": "2024-10-05T09:00:00Z",
+    "updated_at": "2024-10-12T09:00:00Z",
+    "body": "Passing 'htp://example.com' raises a generic InvalidSchema error. The message could suggest the likely intended scheme.",
+    "_comments": []
+  },
+  {
+    "number": 6730,
+    "title": "Memory usage grows when reusing a Session for many requests",
+    "state": "open",
+    "labels": ["bug", "performance"],
+    "user": "leakhunter",
+    "created_at": "2024-09-15T12:00:00Z",
+    "updated_at": "2024-12-28T17:00:00Z",
+    "body": "Long-lived Session objects appear to retain references to response content. Possibly the cookie jar or the adapter pool.",
+    "_comments": [
+      {"user": "maintainerB", "body": "Can you confirm whether you're holding references to Response objects yourself?"}
+    ]
+  },
+  {
+    "number": 6712,
+    "title": "Question: how to stream upload a large file?",
+    "state": "closed",
+    "labels": ["question"],
+    "user": "uploader",
+    "created_at": "2024-08-01T10:00:00Z",
+    "updated_at": "2024-08-03T11:00:00Z",
+    "body": "Is there a recommended way to stream a multi-GB file upload without loading it into memory?",
+    "_comments": [
+      {"user": "maintainerA", "body": "Pass a file object or generator as `data=`. Closing as answered."}
+    ]
+  },
+  {
+    "number": 6701,
+    "title": "HTTPError not raised for 4xx when stream=True",
+    "state": "closed",
+    "labels": ["bug"],
+    "user": "streamer",
+    "created_at": "2024-07-10T09:00:00Z",
+    "updated_at": "2024-07-25T14:00:00Z",
+    "body": "raise_for_status() works, but I expected an automatic error. Turns out that's by design.",
+    "_comments": [
+      {"user": "maintainerB", "body": "Working as intended — raise_for_status() is opt-in. Closing."}
+    ]
+  },
+  {
+    "number": 6695,
+    "title": "Digest auth fails against servers that omit the qop directive",
+    "state": "open",
+    "labels": ["bug"],
+    "user": "authuser",
+    "created_at": "2024-06-20T08:00:00Z",
+    "updated_at": "2024-09-30T10:00:00Z",
+    "body": "HTTPDigestAuth in requests/auth.py assumes qop is present. Some legacy servers omit it and authentication fails.",
+    "_comments": []
+  },
+  {
+    "number": 6688,
+    "title": "Encoding detection picks wrong charset for some JSON responses",
+    "state": "open",
+    "labels": ["bug"],
+    "user": "charsetbug",
+    "created_at": "2024-06-01T11:00:00Z",
+    "updated_at": "2024-08-15T12:00:00Z",
+    "body": "Response.text mis-decodes a UTF-8 JSON body as ISO-8859-1 when the server omits a charset in Content-Type.",
+    "_comments": [
+      {"user": "maintainerA", "body": "This is the documented fallback behaviour — use response.json() or set response.encoding explicitly."}
+    ]
+  },
+  {
+    "number": 6675,
+    "title": "Add a changelog entry for the 2.32 connection reuse fix",
+    "state": "closed",
+    "labels": ["documentation"],
+    "user": "historian",
+    "created_at": "2024-05-10T09:00:00Z",
+    "updated_at": "2024-05-12T09:00:00Z",
+    "body": "HISTORY.md is missing the connection-reuse fix from the last release.",
+    "_comments": []
+  },
+  {
+    "number": 6660,
+    "title": "Session.resolve_redirects drops the body on 307 redirects in rare cases",
+    "state": "open",
+    "labels": ["bug"],
+    "user": "redirectbug",
+    "created_at": "2024-04-15T10:00:00Z",
+    "updated_at": "2024-10-01T09:00:00Z",
+    "body": "A 307 should preserve method and body. In a chained-redirect scenario the rebuilt request in sessions.py loses the body.",
+    "_comments": []
+  },
+  {
+    "number": 6640,
+    "title": "Feature request: per-request logging hook",
+    "state": "open",
+    "labels": ["enhancement"],
+    "user": "observer",
+    "created_at": "2024-03-01T10:00:00Z",
+    "updated_at": "2024-06-10T10:00:00Z",
+    "body": "A built-in hook to log every request/response without monkeypatching would be useful.",
+    "_comments": []
+  },
+  {
+    "number": 6620,
+    "title": "Update copyright year in docs",
+    "state": "closed",
+    "labels": ["documentation", "good first issue"],
+    "user": "yearbot",
+    "created_at": "2024-01-05T09:00:00Z",
+    "updated_at": "2024-01-06T09:00:00Z",
+    "body": "docs/conf.py still shows last year.",
+    "_comments": []
+  },
+
+  {
+    "number": 6803,
+    "title": "Fix per-read timeout not firing on stalled streaming responses",
+    "state": "open",
+    "labels": ["bug"],
+    "user": "contribX",
+    "created_at": "2025-02-03T09:00:00Z",
+    "updated_at": "2025-02-10T16:00:00Z",
+    "body": "Addresses #6778. Threads the read timeout through each chunk read in HTTPAdapter.send so a mid-body stall raises ReadTimeout.\n\n- Pass timeout into the urllib3 read loop\n- Add a regression test in tests/test_adapters.py",
+    "pull_request": true,
+    "_comments": [
+      {"user": "maintainerB", "body": "Nice. Please also cover the chunked-encoding path."}
+    ],
+    "_files": [
+      {"filename": "src/requests/adapters.py", "status": "modified", "additions": 14, "deletions": 3, "patch": "@@ def send(self, request, stream=False, timeout=None ...\n-        resp = conn.urlopen(...)\n+        resp = conn.urlopen(..., timeout=timeout)\n+        # propagate read timeout per chunk"},
+      {"filename": "tests/test_adapters.py", "status": "modified", "additions": 22, "deletions": 0, "patch": "@@ +def test_read_timeout_on_stalled_stream():\n+    ..."}
+    ]
+  },
+  {
+    "number": 6800,
+    "title": "Raise pool_maxsize default and improve the 'pool is full' warning",
+    "state": "open",
+    "labels": ["enhancement", "performance"],
+    "user": "contribY",
+    "created_at": "2025-01-25T09:00:00Z",
+    "updated_at": "2025-02-05T10:30:00Z",
+    "body": "Addresses #6788. Bumps the default pool_maxsize on HTTPAdapter and rewrites the warning to point users at mounting a custom adapter.",
+    "pull_request": true,
+    "_comments": [
+      {"user": "maintainerA", "body": "Let's keep the default but make the warning actionable — changing the default is a behaviour change."}
+    ],
+    "_files": [
+      {"filename": "src/requests/adapters.py", "status": "modified", "additions": 9, "deletions": 4, "patch": "@@ class HTTPAdapter ...\n-    DEFAULT_POOLSIZE = 10\n+    DEFAULT_POOLSIZE = 10  # see warning below\n+    # clearer warning message"}
+    ]
+  },
+  {
+    "number": 6797,
+    "title": "Docs: add a Quickstart section on timeouts",
+    "state": "open",
+    "labels": ["documentation"],
+    "user": "contribZ",
+    "created_at": "2025-01-21T09:00:00Z",
+    "updated_at": "2025-01-24T12:00:00Z",
+    "body": "Addresses #6801. Adds a 'Timeouts' subsection to docs/user/quickstart.rst explaining connect vs read timeouts.",
+    "pull_request": true,
+    "_comments": [],
+    "_files": [
+      {"filename": "docs/user/quickstart.rst", "status": "modified", "additions": 31, "deletions": 1, "patch": "@@ Quickstart ...\n+Timeouts\n+--------\n+Always pass a ``timeout`` ..."}
+    ]
+  },
+  {
+    "number": 6790,
+    "title": "Handle missing qop directive in HTTPDigestAuth",
+    "state": "open",
+    "labels": ["bug"],
+    "user": "contribW",
+    "created_at": "2025-01-08T09:00:00Z",
+    "updated_at": "2025-01-19T15:00:00Z",
+    "body": "Addresses #6695. Makes requests/auth.py tolerate servers that omit qop in the WWW-Authenticate header.",
+    "pull_request": true,
+    "_comments": [
+      {"user": "maintainerB", "body": "Please add a test against a fixture server without qop."}
+    ],
+    "_files": [
+      {"filename": "src/requests/auth.py", "status": "modified", "additions": 12, "deletions": 5, "patch": "@@ class HTTPDigestAuth ...\n-        qop = self._thread_local.chal['qop']\n+        qop = self._thread_local.chal.get('qop')"}
+    ]
+  },
+  {
+    "number": 6772,
+    "title": "Add type hints to requests.api",
+    "state": "open",
+    "labels": ["enhancement"],
+    "user": "contribV",
+    "created_at": "2024-11-25T09:00:00Z",
+    "updated_at": "2024-12-15T09:00:00Z",
+    "body": "Addresses #6782. Annotates all public functions in src/requests/api.py.",
+    "pull_request": true,
+    "_comments": [],
+    "_files": [
+      {"filename": "src/requests/api.py", "status": "modified", "additions": 28, "deletions": 20, "patch": "@@ def get(url, params=None, **kwargs):\n-def get(url, params=None, **kwargs):\n+def get(url: str, params=None, **kwargs) -> Response:"}
+    ]
+  },
+  {
+    "number": 6755,
+    "title": "Preserve request body across 307/308 redirect chains",
+    "state": "closed",
+    "labels": ["bug"],
+    "user": "contribU",
+    "created_at": "2024-10-25T09:00:00Z",
+    "updated_at": "2024-11-08T09:00:00Z",
+    "body": "Addresses #6660. Fixes Session.resolve_redirects in sessions.py to keep the body on 307/308.",
+    "pull_request": true,
+    "_comments": [
+      {"user": "maintainerA", "body": "Merged, thanks!"}
+    ],
+    "_files": [
+      {"filename": "src/requests/sessions.py", "status": "modified", "additions": 7, "deletions": 2, "patch": "@@ def resolve_redirects ...\n+        if response.status_code in (307, 308):\n+            prepared_request.body = req.body"}
+    ]
+  }
+]

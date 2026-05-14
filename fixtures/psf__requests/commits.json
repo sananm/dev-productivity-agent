@@ -1,0 +1,2318 @@
+[
+ {
+  "sha": "b7b549b54571d03950b16afd2d01bc6ff0348224",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-13T13:17:24-06:00",
+  "message": "v2.34.1",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "e511bc72777a94c45d004e010c597925092e1efe",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-13T13:16:50-06:00",
+  "message": "Fix mutability issues with headers input types (#7431)",
+  "files": [
+   "src/requests/_types.py",
+   "src/requests/models.py",
+   "src/requests/sessions.py"
+  ]
+ },
+ {
+  "sha": "5691f596134c2feb121e595c77a0178921fcce61",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-13T08:43:16-06:00",
+  "message": "Update JsonType containers to read-based collections (#7436)",
+  "files": [
+   "src/requests/_types.py"
+  ]
+ },
+ {
+  "sha": "2144213c307691710c9d665700860fc4993c3035",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-13T08:42:42-06:00",
+  "message": "Constrain Response.reason to str (#7437)",
+  "files": [
+   "src/requests/models.py"
+  ]
+ },
+ {
+  "sha": "6404f345e562d962abe6700a1c357ec1e7e18232",
+  "author_name": "Kaeun Kim",
+  "date": "2026-05-12T18:51:01+01:00",
+  "message": "Fix `prepare_body` stream detection for `__getattr__`-based file wrappers (#7433)\n\n---------\n\nCo-authored-by: Nate Prewitt <nate.prewitt@gmail.com>",
+  "files": [
+   "src/requests/models.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "0b401c76b6e80a4eecf3c690085b2553f6e261ca",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-11T13:24:57-06:00",
+  "message": "v2.34.0",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "86b378d3f60f828daa13ca50aa82e287ff7b66b4",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-11T13:24:34-06:00",
+  "message": "Align Session.get parameters with requests.get (#7429)",
+  "files": [
+   "src/requests/sessions.py"
+  ]
+ },
+ {
+  "sha": "a4f9a5999bdb9bf2d6e7c8aa973b28cacb17134f",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-11T13:24:21-06:00",
+  "message": "Port bpo-39057 to Requests (#7427)",
+  "files": [
+   "src/requests/utils.py",
+   "tests/test_utils.py"
+  ]
+ },
+ {
+  "sha": "3816cfa1abd42dca21b9e837f26c59b246016aaf",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-11T11:33:17-06:00",
+  "message": "Parameterize SupportsItems to handle Mapping key invariance (#7426)",
+  "files": [
+   "src/requests/_types.py",
+   "src/requests/utils.py"
+  ]
+ },
+ {
+  "sha": "b684dcb9bbf3aa557d1238e72062c4a29737dd1c",
+  "author_name": "Sebastian Meyer",
+  "date": "2026-05-11T18:14:13+02:00",
+  "message": "sessions: fix hooks type (#7425)",
+  "files": [
+   "src/requests/_types.py",
+   "src/requests/sessions.py"
+  ]
+ },
+ {
+  "sha": "dc9dbdfb3434c6e58d48fd102f93e5342308817e",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-10T20:05:34-06:00",
+  "message": "Formalize 3.15 support (#7422)",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   "pyproject.toml"
+  ]
+ },
+ {
+  "sha": "25340ebad09a38e0748aeb26232102022a03ec94",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-10T20:05:15-06:00",
+  "message": "Clear proxy env vars before every test run (#7423)",
+  "files": [
+   "tests/conftest.py"
+  ]
+ },
+ {
+  "sha": "fd628095d7b9ddbf3e987d8a4bf0e6062768916f",
+  "author_name": "typhon8",
+  "date": "2026-05-10T17:41:25-04:00",
+  "message": "Preserve leading slashes in request path_url (#7315)\n\n---------\n\nCo-authored-by: Nate Prewitt <nate.prewitt@gmail.com>",
+  "files": [
+   "src/requests/adapters.py",
+   "tests/test_adapters.py"
+  ]
+ },
+ {
+  "sha": "e8d2c015eecda8273612dd4562425e00cd164ba5",
+  "author_name": "eggsort",
+  "date": "2026-05-09T19:51:50+01:00",
+  "message": "docs: Fix missing hook output in docs example (#7421)",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "eb173bc819c72580deed2d54190d340cc769e529",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-08T14:18:00-06:00",
+  "message": "Add 3.14t support to CI (#7419)",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   "pyproject.toml"
+  ]
+ },
+ {
+  "sha": "d60f4773b1f5932e2715b2c64b333649edbb405b",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-07T15:47:07-06:00",
+  "message": "Cleanup remaining http:// reference URIs",
+  "files": [
+   "docs/Makefile",
+   "docs/community/faq.rst",
+   "docs/community/out-there.rst",
+   "docs/dev/contributing.rst",
+   "docs/make.bat"
+  ]
+ },
+ {
+  "sha": "f64a0d782b2a9310340aba929f44bb887d2f27e0",
+  "author_name": "Joshua Kothapalle",
+  "date": "2026-05-07T17:25:17-04:00",
+  "message": "docs: update stale Sphinx link in contributing guide",
+  "files": [
+   "docs/dev/contributing.rst"
+  ]
+ },
+ {
+  "sha": "04d750509b90da728e53aee8d7516426e5a1a293",
+  "author_name": "dependabot[bot]",
+  "date": "2026-05-04T14:42:06-07:00",
+  "message": "Bump https://github.com/astral-sh/ruff-pre-commit (#7411)\n\nBumps the pre-commit group with 1 update: [https://github.com/astral-sh/ruff-pre-commit](https://github.com/astral-sh/ruff-pre-commit).\n\n\nUpdates `https://github.com/astral-sh/ruff-pre-commit` from v0.15.11 to 0.15.12\n- [Release notes](https://github.com/astral-sh/ruff-pre-commit/releases)\n- [Commits](https://github.com/astral-sh/ruff-pre-commit/compare/v0.15.11...v0.15.12)\n\n---\nupdated-dependencies:\n- dependency-name: https://github.com/astral-sh/ruff-pre-commit\n  dependency-version: 0.15.12\n  dependency-type: direct:production\n  dependency-group: pre-commit\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+  "files": [
+   ".pre-commit-config.yaml"
+  ]
+ },
+ {
+  "sha": "f7822f7c4185b45527f171095c4edf8777efe51b",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-03T13:51:27-06:00",
+  "message": "v2.34.0.dev1",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "561e4b6889f53584c39a67f8794c53a414f68481",
+  "author_name": "Nate Prewitt",
+  "date": "2026-05-03T13:38:48-06:00",
+  "message": "Add inline types to Requests (#7272)",
+  "files": [
+   ".github/workflows/typecheck.yml",
+   "pyproject.toml",
+   "src/requests/__init__.py",
+   "src/requests/_internal_utils.py",
+   "src/requests/_types.py",
+   "src/requests/adapters.py",
+   "src/requests/api.py",
+   "src/requests/auth.py",
+   "src/requests/compat.py",
+   "src/requests/cookies.py",
+   "src/requests/exceptions.py",
+   "src/requests/help.py",
+   "src/requests/hooks.py",
+   "src/requests/models.py",
+   "src/requests/py.typed",
+   "src/requests/sessions.py",
+   "src/requests/status_codes.py",
+   "src/requests/structures.py",
+   "src/requests/utils.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "8f6cda9969f4a98c45ea2922f6bcbefc02256202",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-30T11:05:37-06:00",
+  "message": "Add tests for hasattr/getattr usage on LookupDict (#7401)",
+  "files": [
+   "tests/test_structures.py"
+  ]
+ },
+ {
+  "sha": "27e0981962d355b9532256f4dcb3d42f64b04d9c",
+  "author_name": "Dimitri Papadopoulos Orfanos",
+  "date": "2026-04-30T16:35:13+02:00",
+  "message": "Fix remaining typos (#7395)",
+  "files": [
+   "src/requests/adapters.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "6ec76b4a36fba4a32fb72f5f9ba04e632635e477",
+  "author_name": "Dimitri Papadopoulos Orfanos",
+  "date": "2026-04-27T18:08:18+03:00",
+  "message": "Ruff rule UP038 has been removed (#7393)",
+  "files": [
+   "pyproject.toml"
+  ]
+ },
+ {
+  "sha": "f43f750ee10addbaa13901c1017631b4d70fd6e3",
+  "author_name": "dependabot[bot]",
+  "date": "2026-04-24T08:19:25-06:00",
+  "message": "Bump https://github.com/astral-sh/ruff-pre-commit (#7390)",
+  "files": [
+   ".pre-commit-config.yaml"
+  ]
+ },
+ {
+  "sha": "9450dd51fb423c17f01325d5f23e62b0450696c6",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-24T04:52:01-06:00",
+  "message": "Create groups for GHA and pre-commit dependabot PRs (#7387)",
+  "files": [
+   ".github/dependabot.yml"
+  ]
+ },
+ {
+  "sha": "93bf5331a70cd2c77ac3ba43f85c918cae67c69f",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-23T14:53:48-06:00",
+  "message": "Update index.rst to match README info (#7386)",
+  "files": [
+   "docs/index.rst"
+  ]
+ },
+ {
+  "sha": "79f4df84cf77a2fee873809821dfbd786de05b97",
+  "author_name": "dependabot[bot]",
+  "date": "2026-04-20T12:32:32-07:00",
+  "message": "Bump pypa/gh-action-pypi-publish from 1.13.0 to 1.14.0 (#7378)\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.13.0 to 1.14.0.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e...cef221092ed1bacb1cc03d23a2d87d1d172e277b)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-version: 1.14.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>\nCo-authored-by: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "b294b08fe3b08df9f646f64d1250f96193dab066",
+  "author_name": "Dejan SANADER",
+  "date": "2026-04-20T18:24:32+02:00",
+  "message": "Consider urllib3 version has 3 numbers at most (#7375) (#7376)",
+  "files": [
+   "src/requests/__init__.py"
+  ]
+ },
+ {
+  "sha": "5f3ff9b9e4d3d44960467e7877e06e9efa22f20b",
+  "author_name": "Christian Clauss",
+  "date": "2026-04-19T20:34:20+02:00",
+  "message": "Fix typos discovered by codespell (#7371)",
+  "files": [
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "514c1623fefff760bfa15a693aa38e474aba8560",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-15T12:30:57-06:00",
+  "message": "Update README and remove extraneous images (#7366)",
+  "files": [
+   "README.md",
+   "ext/flower-of-life.jpg",
+   "ext/kr-compressed.png",
+   "ext/psf-compressed.png",
+   "ext/ss-compressed.png",
+   "ext/ss.png"
+  ]
+ },
+ {
+  "sha": "d2f6bdecc835475c3cfbb83565ea879d7b2712ca",
+  "author_name": "Chris Riches",
+  "date": "2026-04-15T16:06:46+01:00",
+  "message": "Clarify decode_unicode behaviour in iter_{content,lines} docstrings (#7365)",
+  "files": [
+   "src/requests/models.py"
+  ]
+ },
+ {
+  "sha": "a044b020dea43230585126901684a0f30ec635a8",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-15T08:56:38-06:00",
+  "message": "Move DigestAuth hash algorithms to use usedforsecurity=False (#7310)",
+  "files": [
+   "src/requests/auth.py"
+  ]
+ },
+ {
+  "sha": "16df2a09173b17a82d607c31a6826b7c5dd0fc57",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-14T21:04:46-06:00",
+  "message": "Move pytest pin to support 9.x series (#7364)",
+  "files": [
+   "requirements-dev.txt"
+  ]
+ },
+ {
+  "sha": "fe2063be0cfbc08150ef468ae57a708c2514a321",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-14T11:58:28-06:00",
+  "message": "Don't hide navigation on mobile webpage (#7360)",
+  "files": [
+   "docs/_static/custom.css"
+  ]
+ },
+ {
+  "sha": "4b0b1a3e9f2fc21b9dcd8b906f2ff02645aa697e",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-11T18:05:37-06:00",
+  "message": "Update pre-commit versions (#7348)\n\n* Update pre-commit versions\n\n* Add dependabot entry for pre-commit\n\n* Update pre-commit and ruff hooks",
+  "files": [
+   ".github/dependabot.yml",
+   ".pre-commit-config.yaml"
+  ]
+ },
+ {
+  "sha": "185f587a78e2d2df31ae8af8c95d97a012213df7",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-11T13:39:24-06:00",
+  "message": "Cleanup docs and add i18n wrappers (#7354)",
+  "files": [
+   "docs/_static/custom.css",
+   "docs/_templates/hacks.html",
+   "docs/_templates/sidebar.html",
+   "docs/_templates/sidebarintro.html",
+   "docs/_templates/sidebarlogo.html",
+   "docs/conf.py"
+  ]
+ },
+ {
+  "sha": "ef439eb779c1eba7cbdeeeb302b11e1e061b4b7d",
+  "author_name": "Nate Prewitt",
+  "date": "2026-04-05T09:31:02-06:00",
+  "message": "Prevent Response self-reference in redirect history (#7328)",
+  "files": [
+   "src/requests/sessions.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "cbce031327be4f1b4b5fd041ff4dcaa8efa2ce53",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-31T16:21:33-06:00",
+  "message": "Add Zizmor workflow and make initial updates",
+  "files": [
+   ".github/dependabot.yml",
+   ".github/workflows/close-issues.yml",
+   ".github/workflows/codeql-analysis.yml",
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml",
+   ".github/workflows/zizmor.yml"
+  ]
+ },
+ {
+  "sha": "6360477c52303c9445b45fa8744b02d05a2f0905",
+  "author_name": "dependabot[bot]",
+  "date": "2026-03-30T18:25:42Z",
+  "message": "Bump github/codeql-action from 4.34.1 to 4.35.1\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 4.34.1 to 4.35.1.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/38697555549f1db7851b81482ff19f1fa5c4fedc...c10b8064de6f491fea524254123dbe5e09572f13)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-version: 4.35.1\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "111d2b77790bf49943c0dfa09b365371c24aec7e",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-30T10:07:00-06:00",
+  "message": "v2.33.1",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "f0198e6dfc431a2293dc16e1b1e8fcddc910a7f3",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-30T09:27:35-06:00",
+  "message": "Fix malformed value parsing for Content-Type (#7309)",
+  "files": [
+   "src/requests/utils.py",
+   "tests/test_utils.py"
+  ]
+ },
+ {
+  "sha": "bc7dd0fc4d56e808bcdd85ac2d797b3107c89259",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-30T09:24:49-06:00",
+  "message": "Fix cosmetic header validity parsing regex (#7308)",
+  "files": [
+   "src/requests/_internal_utils.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "4443b1a847b190010c2972a658924b98b5db6360",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-30T09:23:00-06:00",
+  "message": "Fix unintended test extra (#7306)",
+  "files": [
+   "pyproject.toml"
+  ]
+ },
+ {
+  "sha": "389eea58dfb2f2ee096421a812e3af29c0298951",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-30T09:21:38-06:00",
+  "message": "Cleanup extracted file after extract_zipped_path test (#7305)",
+  "files": [
+   "tests/test_utils.py"
+  ]
+ },
+ {
+  "sha": "7407309c8a8a73aa2f4337184025d440bbedab7a",
+  "author_name": "Frank Dana",
+  "date": "2026-03-30T00:07:31-04:00",
+  "message": "Packaging: DRY out extras definition (#7277)",
+  "files": [
+   "pyproject.toml"
+  ]
+ },
+ {
+  "sha": "bc04dfd6dad4cb02cd92f5daa81eb562d280a761",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-25T09:06:17-06:00",
+  "message": "v2.33.0",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "66d21cb07bd6255b1280291c4fafb71803cdb3b7",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-25T08:57:56-06:00",
+  "message": "Merge commit from fork",
+  "files": [
+   "src/requests/utils.py"
+  ]
+ },
+ {
+  "sha": "8b9bc8fc0f63be84602387913c4b689f19efd028",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-24T23:18:38-06:00",
+  "message": "Move badges to top of README (#7293)",
+  "files": [
+   "README.md"
+  ]
+ },
+ {
+  "sha": "e331a288f369973f5de0ec8901c94cae4fa87286",
+  "author_name": "Nate Prewitt",
+  "date": "2026-03-24T23:15:21-06:00",
+  "message": "Remove unused extraction call (#7292)",
+  "files": [
+   "src/requests/adapters.py",
+   "src/requests/utils.py"
+  ]
+ },
+ {
+  "sha": "753fd08c5eacce0aa0df73fe47e49525c67e0a29",
+  "author_name": "rohan436",
+  "date": "2026-02-27T17:30:09+08:00",
+  "message": "docs: fix FAQ grammar in httplib2 example\n\nSigned-off-by: rohan436 <rohan.santhoshkumar@googlemail.com>",
+  "files": [
+   "docs/community/faq.rst"
+  ]
+ },
+ {
+  "sha": "774a0b837a194ee885d4fdd9ca947900cc3daf71",
+  "author_name": "Magsen (CD)",
+  "date": "2023-10-18T14:59:43+02:00",
+  "message": "docs(socks): same block as other sections\n\nstrange formatting:\nhttps://docs.python-requests.org/en/latest/user/advanced/#socks",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "9c72a41bec8597f948c9d8caa5dc3f12273b3303",
+  "author_name": "dependabot[bot]",
+  "date": "2026-03-23T17:26:06Z",
+  "message": "Bump github/codeql-action from 4.33.0 to 4.34.1\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 4.33.0 to 4.34.1.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/b1bff81932f5cdfc8695c7752dcee935dcd061c8...38697555549f1db7851b81482ff19f1fa5c4fedc)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-version: 4.34.1\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "ebf71906798ec82f34e07d3168f8b8aecaf8a3be",
+  "author_name": "dependabot[bot]",
+  "date": "2026-03-16T17:38:50Z",
+  "message": "Bump github/codeql-action from 4.32.0 to 4.33.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 4.32.0 to 4.33.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/b20883b0cd1f46c72ae0ba6d1090936928f9fa30...b1bff81932f5cdfc8695c7752dcee935dcd061c8)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-version: 4.33.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "0e4ae38f0c93d4f92a96c774bd52c069d12a4798",
+  "author_name": "Dr Alex Mitre",
+  "date": "2026-03-05T14:14:29-06:00",
+  "message": "docs: exclude Response.is_permanent_redirect from API docs (#7244)\n\nHide the internal Response.is_permanent_redirect attribute from public API documentation.",
+  "files": [
+   "docs/api.rst"
+  ]
+ },
+ {
+  "sha": "d568f47278492e630cc990a259047c67991d007a",
+  "author_name": "Ethan Price",
+  "date": "2026-03-03T11:59:47-08:00",
+  "message": "docs: clarify Quickstart POST example (#6960)\n\n(fixes #6949)\n\n---------\n\nCo-authored-by: Nate Prewitt <nate.prewitt@gmail.com>",
+  "files": [
+   "docs/user/quickstart.rst"
+  ]
+ },
+ {
+  "sha": "b2a1d33f571518ca9a6148e7da787cc5827f897a",
+  "author_name": "Dan Blanchard",
+  "date": "2026-03-02T17:49:19-05:00",
+  "message": "Increase chardet upper limit to 8",
+  "files": [
+   "pyproject.toml",
+   "src/requests/__init__.py"
+  ]
+ },
+ {
+  "sha": "392b01f26e1cca4a2ada1539a6ae1a1b607ec33a",
+  "author_name": "dependabot[bot]",
+  "date": "2026-03-02T20:34:25Z",
+  "message": "Bump actions/download-artifact from 7.0.0 to 8.0.0\n\nBumps [actions/download-artifact](https://github.com/actions/download-artifact) from 7.0.0 to 8.0.0.\n- [Release notes](https://github.com/actions/download-artifact/releases)\n- [Commits](https://github.com/actions/download-artifact/compare/37930b1c2abaa49bbe596cd826c3c89aef350131...70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3)\n\n---\nupdated-dependencies:\n- dependency-name: actions/download-artifact\n  dependency-version: 8.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "27f8b40d5cc6198148a58a8e65c8cff8f7c46a54",
+  "author_name": "dependabot[bot]",
+  "date": "2026-03-02T18:43:39Z",
+  "message": "Bump actions/upload-artifact from 6.0.0 to 7.0.0\n\nBumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 6.0.0 to 7.0.0.\n- [Release notes](https://github.com/actions/upload-artifact/releases)\n- [Commits](https://github.com/actions/upload-artifact/compare/b7c566a772e6b6bfb58ed0dc250532a479d7789f...bbbca2ddaa5d8feaa63e36b76fdaad77386f024f)\n\n---\nupdated-dependencies:\n- dependency-name: actions/upload-artifact\n  dependency-version: 7.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "4bd79e397304d46dfccd76f36c07f66c0295ff82",
+  "author_name": "Amin Vakil",
+  "date": "2026-02-22T19:37:16+03:30",
+  "message": "Increase chardet upper limit to 7",
+  "files": [
+   "pyproject.toml",
+   "src/requests/__init__.py"
+  ]
+ },
+ {
+  "sha": "da9113c0466850a425e554630a732ec1f7d045fc",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-13T17:06:57-07:00",
+  "message": "Add CODEOWNERS file to repo (#7208)",
+  "files": [
+   ".github/CODEOWNERS"
+  ]
+ },
+ {
+  "sha": "a2ce3d8ace060b0c8446bc956e3853806dd4e3bb",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-13T15:48:20-07:00",
+  "message": "Remove harden runner from publish workflow (#7207)",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "5e7cb71cd719394f8fc56ea55da3f58bb22ae2b6",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-13T12:30:59-07:00",
+  "message": "Bump version to dev for test publish",
+  "files": [
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "00600b38f45dc234f825f609cea63d24e7e690af",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-13T12:28:59-07:00",
+  "message": "Update publish workflow and add test pypi option",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "5f338446f9eabd956e7e132668f330d9de4fc368",
+  "author_name": "m0d3v",
+  "date": "2026-02-13T06:22:04+03:30",
+  "message": "Update docstring for Session.verify to include string support (#6859) (#6865)\n\n---------\n\nCo-authored-by: Nate Prewitt <nate.prewitt@gmail.com>",
+  "files": [
+   "src/requests/sessions.py"
+  ]
+ },
+ {
+  "sha": "47914226c2968802f2cdee3f6f0f6e06e4472f64",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-12T19:07:05-07:00",
+  "message": "Fix empty netrc entry usage (#7205)",
+  "files": [
+   "src/requests/utils.py",
+   "tests/test_utils.py"
+  ]
+ },
+ {
+  "sha": "1b40fdd004bfc8ba5301bcf8a6908264e9b6b877",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-10T17:29:35-07:00",
+  "message": "Merge pull request #7200 from psf/dependabot/github_actions/step-security/harden-runner-2.14.2\n\nBump step-security/harden-runner from 2.13.0 to 2.14.2",
+  "files": []
+ },
+ {
+  "sha": "514b3f2345e5b80444b5b85e7cc4ac18a74925b1",
+  "author_name": "dependabot[bot]",
+  "date": "2026-02-11T00:23:00Z",
+  "message": "Bump step-security/harden-runner from 2.13.0 to 2.14.2\n\nBumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.13.0 to 2.14.2.\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/ec9f2d5744a09debf3a187a3f4f675c53b671911...5ef0c079ce82195b2a36a210272d6b661572d83e)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.14.2\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "dedee0f4562bd7f6612ee66b2e8a3c85cd4c3643",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-10T17:22:16-07:00",
+  "message": "Merge pull request #7199 from psf/dependabot/github_actions/dessant/lock-threads-6.0.0\n\nBump dessant/lock-threads from 5.0.0 to 6.0.0",
+  "files": []
+ },
+ {
+  "sha": "7112775514a8276a0b94360c71730db9ae2ab974",
+  "author_name": "dependabot[bot]",
+  "date": "2026-02-10T23:59:55Z",
+  "message": "Bump dessant/lock-threads from 5.0.0 to 6.0.0\n\nBumps [dessant/lock-threads](https://github.com/dessant/lock-threads) from 5.0.0 to 6.0.0.\n- [Release notes](https://github.com/dessant/lock-threads/releases)\n- [Changelog](https://github.com/dessant/lock-threads/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/dessant/lock-threads/compare/d42e5f49803f3c4e14ffee0378e31481265dda22...7266a7ce5c1df01b1c6db85bf8cd86c737dadbe7)\n\n---\nupdated-dependencies:\n- dependency-name: dessant/lock-threads\n  dependency-version: 6.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lock-issues.yml"
+  ]
+ },
+ {
+  "sha": "733b2018a3987714f5a9576f2df4895f2a166449",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-10T16:36:31-07:00",
+  "message": "Update floors for certifi and urllib3 (#7189)",
+  "files": [
+   "pyproject.toml"
+  ]
+ },
+ {
+  "sha": "0c2bbe73982a70623fb81bf16b2507ea0ca80b99",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-06T08:02:46-07:00",
+  "message": "Drop support for Python 3.9 (#7196)",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   "README.md",
+   "pyproject.toml",
+   "setup.py",
+   "tox.ini"
+  ]
+ },
+ {
+  "sha": "32e26af3afafb50930e64765ee37be18774d481c",
+  "author_name": "Nate Prewitt",
+  "date": "2026-02-04T18:01:16-07:00",
+  "message": "Start testing Python 3.15 Alpha (#7195)\n\n* Add optional 3.15-dev runners to test matrix\n\n* Set PYO3_USE_ABI3_FORWARD_COMPATIBILITY for 3.15 builds",
+  "files": [
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "421b8733cf17e4dee8be237e7412b095772c2323",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T20:01:53-07:00",
+  "message": "Merge pull request #7101 from psf/dependabot/github_actions/github/codeql-action-4.31.6\n\nBump github/codeql-action from 4.30.8 to 4.31.6",
+  "files": []
+ },
+ {
+  "sha": "968863678bc09c0205fc916138c1a74e11f46e5b",
+  "author_name": "dependabot[bot]",
+  "date": "2026-01-31T02:32:11Z",
+  "message": "Bump github/codeql-action from 4.30.8 to 4.31.6\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 4.30.8 to 4.31.6.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/f443b600d91635bebf5b0d9ebc620189c0d6fba5...fe4161a26a8629af62121b670040955b330f9af2)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-version: 4.31.6\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "0b950d8e97c5a70e8e9047b8d8c765db3ca6fd7b",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T19:59:20-07:00",
+  "message": "Merge pull request #7100 from psf/dependabot/github_actions/actions/setup-python-6.1.0\n\nBump actions/setup-python from 6.0.0 to 6.1.0",
+  "files": []
+ },
+ {
+  "sha": "42eaeb4da87330107f2b314793ec52dfd3395412",
+  "author_name": "dependabot[bot]",
+  "date": "2026-01-31T02:31:55Z",
+  "message": "Bump actions/setup-python from 6.0.0 to 6.1.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 6.0.0 to 6.1.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/e797f83bcb11b83ae66e0230d6156d7c80228e7c...83679a892e2d95755f2dac6acb0bfd1e9ac5d548)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-version: 6.1.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/publish.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "49f89688672cd7a6c56cb9cde06ae9722f8590e2",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T19:47:47-07:00",
+  "message": "Merge pull request #7092 from psf/dependabot/github_actions/actions/checkout-6.0.0\n\nBump actions/checkout from 5.0.0 to 6.0.0",
+  "files": []
+ },
+ {
+  "sha": "8e398336f8cc82f44c7b549bfa803b99d7159c25",
+  "author_name": "dependabot[bot]",
+  "date": "2026-01-31T02:31:46Z",
+  "message": "Bump actions/checkout from 5.0.0 to 6.0.0\n\nBumps [actions/checkout](https://github.com/actions/checkout) from 5.0.0 to 6.0.0.\n- [Release notes](https://github.com/actions/checkout/releases)\n- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions/checkout/compare/08c6903cd8c0fde910a37f88322edcfb5dd907a8...1af3b93b6815bc44a9784bd300feb67ff0d1eeb3)\n\n---\nupdated-dependencies:\n- dependency-name: actions/checkout\n  dependency-version: 6.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml",
+   ".github/workflows/lint.yml",
+   ".github/workflows/publish.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "5f33bddabdb3a3828e428252e756405d028501de",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T19:45:13-07:00",
+  "message": "Merge pull request #7073 from psf/dependabot/github_actions/actions/download-artifact-6.0.0\n\nBump actions/download-artifact from 5.0.0 to 6.0.0",
+  "files": []
+ },
+ {
+  "sha": "ca78ca96115cb254855afb3d966d24e92c973a20",
+  "author_name": "dependabot[bot]",
+  "date": "2026-01-31T02:31:33Z",
+  "message": "Bump actions/download-artifact from 5.0.0 to 6.0.0\n\nBumps [actions/download-artifact](https://github.com/actions/download-artifact) from 5.0.0 to 6.0.0.\n- [Release notes](https://github.com/actions/download-artifact/releases)\n- [Commits](https://github.com/actions/download-artifact/compare/634f93cb2916e3fdff6788551b99b062d0335ce0...018cc2cf5baa6db3ef3c5f8a56943fffe632ef53)\n\n---\nupdated-dependencies:\n- dependency-name: actions/download-artifact\n  dependency-version: 6.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "8e5ac8e0eb53ed0d204639ac3bc42878c7621210",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T19:36:42-07:00",
+  "message": "Merge pull request #7071 from psf/dependabot/github_actions/actions/upload-artifact-5.0.0\n\nBump actions/upload-artifact from 4.6.2 to 5.0.0",
+  "files": []
+ },
+ {
+  "sha": "6c88b6b09f2ac7c8cba340db774f0e7596626ec2",
+  "author_name": "dependabot[bot]",
+  "date": "2026-01-31T02:31:13Z",
+  "message": "Bump actions/upload-artifact from 4.6.2 to 5.0.0\n\nBumps [actions/upload-artifact](https://github.com/actions/upload-artifact) from 4.6.2 to 5.0.0.\n- [Release notes](https://github.com/actions/upload-artifact/releases)\n- [Commits](https://github.com/actions/upload-artifact/compare/ea165f8d65b6e75b540449e92b4886f43607fa02...330a01c490aca151604b8cf639adc76d48f6c5d4)\n\n---\nupdated-dependencies:\n- dependency-name: actions/upload-artifact\n  dependency-version: 5.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "cb2c800518423e0042789ab09f8f6e719428a444",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T19:25:55-07:00",
+  "message": "Migrate build system to PEP 517 (#7012)",
+  "files": [
+   "pyproject.toml",
+   "setup.cfg",
+   "setup.py"
+  ]
+ },
+ {
+  "sha": "a389aaad453ac4c0b9f8af4a72429de164810654",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T19:12:40-07:00",
+  "message": "Update maintainers in the AUTHORS.rst (#7191)\n\n---------\n\nCo-authored-by: Ian Stapleton Cordasco <graffatcolmingov@gmail.com>",
+  "files": [
+   "AUTHORS.rst"
+  ]
+ },
+ {
+  "sha": "f8bec2f7ca9d7c03981a12ff8866a9b3923f1699",
+  "author_name": "Nate Prewitt",
+  "date": "2026-01-30T14:10:27-07:00",
+  "message": "Fix CI and build failures (#7190)\n\n* Migrate linting from various tooling to Ruff\n\n* Run ruff over codebase\n\n* Drop support for pypy-3.10",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   ".pre-commit-config.yaml",
+   "pyproject.toml",
+   "setup.cfg",
+   "setup.py",
+   "src/requests/__init__.py",
+   "src/requests/_internal_utils.py",
+   "src/requests/adapters.py",
+   "src/requests/auth.py",
+   "src/requests/certs.py",
+   "src/requests/exceptions.py",
+   "src/requests/help.py",
+   "src/requests/hooks.py",
+   "src/requests/models.py",
+   "src/requests/sessions.py",
+   "src/requests/utils.py",
+   "tests/test_lowlevel.py",
+   "tests/test_requests.py",
+   "tests/test_testserver.py"
+  ]
+ },
+ {
+  "sha": "70298332899f25826e35e42f8d83425124f755a5",
+  "author_name": "Nate Prewitt",
+  "date": "2025-10-15T20:45:42+09:00",
+  "message": "Merge pull request #7042 from psf/dependabot/github_actions/github/codeql-action-4.30.8",
+  "files": []
+ },
+ {
+  "sha": "6e4134b204f675268296b2b44c2d52c8a7927b2c",
+  "author_name": "dependabot[bot]",
+  "date": "2025-10-13T16:16:05Z",
+  "message": "Bump github/codeql-action from 3.30.0 to 4.30.8\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.30.0 to 4.30.8.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/2d92b76c45b91eb80fc44c74ce3fce0ee94e8f9d...f443b600d91635bebf5b0d9ebc620189c0d6fba5)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-version: 4.30.8\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "420d16bc7ef326f7b65f90e4644adc0f6a0e1d44",
+  "author_name": "Nate Prewitt",
+  "date": "2025-09-09T18:00:19+09:00",
+  "message": "Merge pull request #7026 from psf/dependabot/github_actions/actions/setup-python-6.0.0",
+  "files": []
+ },
+ {
+  "sha": "3c8decb92fb9062cac4bdd12d6c0d32fb3a2d119",
+  "author_name": "dependabot[bot]",
+  "date": "2025-09-09T00:09:47Z",
+  "message": "Bump actions/setup-python from 5.6.0 to 6.0.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 5.6.0 to 6.0.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/a26af69be951a213d495a4c3e4e4022e16d87065...e797f83bcb11b83ae66e0230d6156d7c80228e7c)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-version: 6.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/publish.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "5a270e2a95cdf84e746f26face11efdda3aa0127",
+  "author_name": "Nate Prewitt",
+  "date": "2025-09-09T09:08:49+09:00",
+  "message": "Merge pull request #7025 from psf/dependabot/github_actions/pypa/gh-action-pypi-publish-1.13.0",
+  "files": []
+ },
+ {
+  "sha": "7d8df1df573a01f20a80994685e9f6c375f9c63f",
+  "author_name": "dependabot[bot]",
+  "date": "2025-09-08T16:18:37Z",
+  "message": "Bump pypa/gh-action-pypi-publish from 1.12.4 to 1.13.0\n\nBumps [pypa/gh-action-pypi-publish](https://github.com/pypa/gh-action-pypi-publish) from 1.12.4 to 1.13.0.\n- [Release notes](https://github.com/pypa/gh-action-pypi-publish/releases)\n- [Commits](https://github.com/pypa/gh-action-pypi-publish/compare/76f52bc884231f62b9a034ebfe128415bbaabdfc...ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e)\n\n---\nupdated-dependencies:\n- dependency-name: pypa/gh-action-pypi-publish\n  dependency-version: 1.13.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "1c49660b84c88eeb2695796ce4a68903c00e00c5",
+  "author_name": "dependabot[bot]",
+  "date": "2025-09-02T02:56:17Z",
+  "message": "Bump github/codeql-action from 3.29.0 to 3.30.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.29.0 to 3.30.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/ce28f5bb42b7a9f2c824e633a3f6ee835bab6858...2d92b76c45b91eb80fc44c74ce3fce0ee94e8f9d)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-version: 3.30.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "b25c87d7cb8d6a18a37fa12442b5f883f9e41741",
+  "author_name": "Nate Prewitt",
+  "date": "2025-08-18T13:23:20-07:00",
+  "message": "v2.32.5",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "131e506079d97606e4214cc4d87b780ac478de7a",
+  "author_name": "Nate Prewitt",
+  "date": "2025-08-11T15:32:16-07:00",
+  "message": "Merge pull request #7010 from psf/dependabot/github_actions/actions/checkout-5.0.0\n\nBump actions/checkout from 4.2.0 to 5.0.0",
+  "files": []
+ },
+ {
+  "sha": "b336cb2bc616a63a93c6470c558fc1f576b77f90",
+  "author_name": "dependabot[bot]",
+  "date": "2025-08-11T22:15:22Z",
+  "message": "Bump actions/checkout from 4.2.0 to 5.0.0\n\nBumps [actions/checkout](https://github.com/actions/checkout) from 4.2.0 to 5.0.0.\n- [Release notes](https://github.com/actions/checkout/releases)\n- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions/checkout/compare/v4.2.0...08c6903cd8c0fde910a37f88322edcfb5dd907a8)\n\n---\nupdated-dependencies:\n- dependency-name: actions/checkout\n  dependency-version: 5.0.0\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml",
+   ".github/workflows/lint.yml",
+   ".github/workflows/publish.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "46e939b5525d9c72b677340985582b04b128478a",
+  "author_name": "Grant Birkinbine",
+  "date": "2025-08-05T22:44:36-07:00",
+  "message": "Update publish workflow to use `artifact-id` instead of `name`\n\nAdded artifact-id output to publish workflow and updated download-artifact action version to `v5.0.0`. Also hardens the workflow a bit by adding `persist-credentials: false` to the checkout step",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "4b9c546aa3f35fca6ca24945376fe7462bb007c4",
+  "author_name": "Nate Prewitt",
+  "date": "2025-07-28T12:09:42-07:00",
+  "message": "Merge pull request #6999 from psf/dependabot/github_actions/step-security/harden-runner-2.13.0\n\nBump step-security/harden-runner from 2.12.0 to 2.13.0",
+  "files": []
+ },
+ {
+  "sha": "7618dbef01d333f23ba4b9c4d97397b06dd89cb6",
+  "author_name": "dependabot[bot]",
+  "date": "2025-07-28T19:01:25Z",
+  "message": "Bump step-security/harden-runner from 2.12.0 to 2.13.0\n\nBumps [step-security/harden-runner](https://github.com/step-security/harden-runner) from 2.12.0 to 2.13.0.\n- [Release notes](https://github.com/step-security/harden-runner/releases)\n- [Commits](https://github.com/step-security/harden-runner/compare/0634a2670c59f64b4a01f0f96f84700a4088b9f0...ec9f2d5744a09debf3a187a3f4f675c53b671911)\n\n---\nupdated-dependencies:\n- dependency-name: step-security/harden-runner\n  dependency-version: 2.13.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/publish.yml"
+  ]
+ },
+ {
+  "sha": "2edca11103c1c27dd8b572dab544b7f48cf3b446",
+  "author_name": "Nate Prewitt",
+  "date": "2025-07-25T13:42:15-07:00",
+  "message": "Add support for Python 3.14 and drop support for Python 3.8 (#6993)\n\n* Add testing for Python 3.14 preview build\n\n* Add trove classifier for Python 3.14\n\n* Remove support for Python 3.8",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   "HISTORY.md",
+   "README.md",
+   "docs/community/faq.rst",
+   "docs/index.rst",
+   "setup.py",
+   "tox.ini"
+  ]
+ },
+ {
+  "sha": "fec96cd5976ad763e45bac9a033d62cca1877a00",
+  "author_name": "Abhishek Jha",
+  "date": "2025-07-18T21:54:31+05:30",
+  "message": "Update Makefile rules (#6996)",
+  "files": [
+   "Makefile"
+  ]
+ },
+ {
+  "sha": "d58d8aa2f45c3575268d6d5250745ef69f9cf8b7",
+  "author_name": "Quaylyn Rimer",
+  "date": "2025-07-17T19:09:19-07:00",
+  "message": "docs: clarify timeout parameter uses seconds in Session.request (#6994)",
+  "files": [
+   "src/requests/sessions.py"
+  ]
+ },
+ {
+  "sha": "91a3eabd3dcc4d7f36dd8249e4777a90ef9b4305",
+  "author_name": "dependabot[bot]",
+  "date": "2025-06-16T17:38:11Z",
+  "message": "Bump github/codeql-action from 3.28.5 to 3.29.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.28.5 to 3.29.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/f6091c0113d1dcf9b98e269ee48e8a7e51b7bdd4...ce28f5bb42b7a9f2c824e633a3f6ee835bab6858)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-version: 3.29.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "90fee0876aea97c639b3bf698d83a12876d2f160",
+  "author_name": "Nate Prewitt",
+  "date": "2025-06-13T09:42:08-07:00",
+  "message": "Revert caching a default SSLContext (#6767)",
+  "files": [
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "8ff173b186f135670879db9fbe1e68a6b5209c89",
+  "author_name": "AHMAD FAIZ",
+  "date": "2024-07-28T18:14:06+05:30",
+  "message": "Clarify error description in cloning instructions\n\nThis clarifies the error description in the 'Cloning the repository' section of the README. The current wording mentions 'an error about a bad commit', which is somewhat vague. I've updated it to 'an error about a bad commit timestamp', which more accurately describes the nature of the error referenced in issue #2690.\nThis small change improves the clarity of the documentation, helping users better understand the potential issue they might encounter when cloning the repository and why they need to use the specified Git flag.",
+  "files": [
+   "README.md"
+  ]
+ },
+ {
+  "sha": "3f07f990ac74f1e1691ba17ef8c14007f05846ab",
+  "author_name": "Jonas Fonseca",
+  "date": "2024-10-04T09:18:45-04:00",
+  "message": "Fix typo in documentation for verify",
+  "files": [
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "e57b5bf05c4e39281b5547b1bd05a5074dc96df3",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2025-06-09T21:15:28-05:00",
+  "message": "Add Trusted Publishing Release Workflow\n\nRather than rely on manual releases from a developer laptop, let's use\ntag pushes to trigger a workflow to publish artifacts to PyPI. This will\nleverage trusted publishing and upload attestations as well.",
+  "files": [
+   ".github/workflows/publish.yml",
+   "Makefile"
+  ]
+ },
+ {
+  "sha": "021dc729f0b71a3030cefdbec7fb57a0e80a6cfd",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2025-06-09T11:26:42-05:00",
+  "message": "Polish up release tooling for last manual release",
+  "files": [
+   "Makefile"
+  ]
+ },
+ {
+  "sha": "821770e822a20a21b207b3907ea83878bda1d396",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2025-06-09T10:21:47-05:00",
+  "message": "Bump version and add release notes for v2.32.4",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "59f8aa2adf1d3d06bcbf7ce6b13743a1639a5401",
+  "author_name": "Piotr Szlazak",
+  "date": "2025-06-08T19:47:55+02:00",
+  "message": "Add netrc file search information to authentication documentation (#6876)",
+  "files": [
+   "docs/user/authentication.rst",
+   "docs/user/quickstart.rst"
+  ]
+ },
+ {
+  "sha": "5b4b64c3467fd7a3c03f91ee641aaa348b6bed3b",
+  "author_name": "Arthur Woimb\u00e9e",
+  "date": "2025-06-05T16:55:33+02:00",
+  "message": "Add more tests to prevent regression of CVE 2024 47081\n\nRemove workaround not needed since py38 for os.path.expanduser.",
+  "files": [
+   "src/requests/utils.py",
+   "tests/test_utils.py"
+  ]
+ },
+ {
+  "sha": "7bc45877a86192af77645e156eb3744f95b47dae",
+  "author_name": "danigm",
+  "date": "2025-06-05T13:21:46+02:00",
+  "message": "Add new test to check netrc auth leak (#6962)\n\nThis patch adds a new test that reproduces the security issue reported\nhere:\nhttps://seclists.org/oss-sec/2025/q2/204\n\nDoing a request to a malicious url with a prefix like \"domain.com:@\"\nwill use the \"domain.com\" netrc credentials in the request to other\ndomain.",
+  "files": [
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "96ba401c1296ab1dda74a2365ef36d88f7d144ef",
+  "author_name": "Nate Prewitt",
+  "date": "2024-09-25T08:03:20-07:00",
+  "message": "Only use hostname to do netrc lookup instead of netloc",
+  "files": [
+   "src/requests/utils.py"
+  ]
+ },
+ {
+  "sha": "7341690e842a23cf18ded0abd9229765fa88c4e2",
+  "author_name": "Nate Prewitt",
+  "date": "2025-06-01T11:07:17-07:00",
+  "message": "Merge pull request #6951 from tswast/patch-1",
+  "files": []
+ },
+ {
+  "sha": "6716d7c9f29df636643fa2489f98890216525cb0",
+  "author_name": "Tim Swe\u00f1a",
+  "date": "2025-06-01T09:03:51-05:00",
+  "message": "remove links",
+  "files": [
+   "docs/dev/contributing.rst",
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "a7e1c745dc23c18e836febd672416ed0c5d8d8ae",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2025-05-31T11:59:51-05:00",
+  "message": "Update docs/conf.py\n\nCo-authored-by: Nate Prewitt <nate.prewitt@gmail.com>",
+  "files": [
+   "docs/conf.py"
+  ]
+ },
+ {
+  "sha": "c799b8167a13416833ad3b4f3298261a477e826f",
+  "author_name": "Tim Swe\u00f1a (Swast)",
+  "date": "2025-05-21T11:08:05-05:00",
+  "message": "docs: fix dead links to kenreitz.org",
+  "files": [
+   "docs/conf.py",
+   "docs/dev/contributing.rst",
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "c65c780849563c891f35ffc98d3198b71011c012",
+  "author_name": "Robin",
+  "date": "2025-05-03T12:39:14-04:00",
+  "message": "Add two more tests exercising the adapter (#6936)\n\nCloses #6935",
+  "files": [
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "579cd9f23319ebc65b71613f59e2b7b37d67276d",
+  "author_name": "Nate Prewitt",
+  "date": "2025-03-31T10:43:23-07:00",
+  "message": "Drop pypy 3.9 and add pypy 3.11 support",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   "HISTORY.md"
+  ]
+ },
+ {
+  "sha": "c54d0347e24f38b40881f1e0a8bfc9fbce583298",
+  "author_name": "Nate Prewitt",
+  "date": "2025-04-28T10:36:20-07:00",
+  "message": "Merge pull request #6939 from psf/dependabot/github_actions/actions/setup-python-5.6.0",
+  "files": []
+ },
+ {
+  "sha": "991f05dcd922b1c4036067cb0473abc17db3c806",
+  "author_name": "dependabot[bot]",
+  "date": "2025-04-28T17:28:05Z",
+  "message": "Bump actions/setup-python from 5.5.0 to 5.6.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 5.5.0 to 5.6.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/8d9ed9ac5c53483de85588cdf95a591a75ab9f55...a26af69be951a213d495a4c3e4e4022e16d87065)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-version: 5.6.0\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "4ce9520a1cfa2e91abe5a923498f49e1fdb2e4ee",
+  "author_name": "Robin",
+  "date": "2025-04-23T08:44:05-04:00",
+  "message": "Update lint workflow to ubuntu-24.04\n\nUbuntu 20.04 was the old default and is no longer supported by GitHub Actions",
+  "files": [
+   ".github/workflows/lint.yml"
+  ]
+ },
+ {
+  "sha": "42a1dd640ca42ccfc22b00ba29d1bb0c3e51c9d2",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2025-04-15T21:46:50-05:00",
+  "message": "Merge pull request #6924 from RichieB2B/rfc5280\n\nAdd key usage extension to test ca.crt",
+  "files": []
+ },
+ {
+  "sha": "c4c8e20289ab82edad55d2fc07b42cbf08ae1441",
+  "author_name": "Nate Prewitt",
+  "date": "2025-03-31T09:43:07-07:00",
+  "message": "Merge pull request #6925 from psf/dependabot/github_actions/actions/setup-python-5.5.0\n\nBump actions/setup-python from 5.4.0 to 5.5.0",
+  "files": []
+ },
+ {
+  "sha": "a5cb4284e18555d9e179f309356178410dbfdaf1",
+  "author_name": "dependabot[bot]",
+  "date": "2025-03-31T16:31:10Z",
+  "message": "Bump actions/setup-python from 5.4.0 to 5.5.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 5.4.0 to 5.5.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/42375524e23c412d93fb67b49958b491fce71c38...8d9ed9ac5c53483de85588cdf95a591a75ab9f55)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "2019450b43511289d45c6b3e7376f2813e1c27b4",
+  "author_name": "Richard van den Berg",
+  "date": "2025-03-29T14:53:45+01:00",
+  "message": "Add key usage extension to test ca.crt",
+  "files": [
+   "tests/certs/expired/ca/ca.cnf",
+   "tests/certs/expired/ca/ca.crt"
+  ]
+ },
+ {
+  "sha": "1764cc938efc3cc9720188dfa6c3852c45211aa0",
+  "author_name": "Nate Prewitt",
+  "date": "2025-02-20T10:43:13-08:00",
+  "message": "Merge pull request #6899 from duzhuoshanwai/main\n\nDocs: Add quotes to prevent Zsh wildcard interpretation.",
+  "files": []
+ },
+ {
+  "sha": "e946665c5953ab40e6dbb29cc8c496ee625fdadd",
+  "author_name": "duzhuoshanwai",
+  "date": "2025-02-19T10:05:28+08:00",
+  "message": "Update advanced.rst\n\nAdd quotes to prevent Zsh wildcard interpretation.",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "8ba805fa93c3f0fc958b48bc136ed565d7c82872",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2025-02-17T06:40:19-06:00",
+  "message": "Merge pull request #6897 from cjwatson/fix-test-certificates\n\nAdd CA constraint to test CA",
+  "files": []
+ },
+ {
+  "sha": "9ebebdef98a6aacfbedcf2ca61ba0eaecc2563f4",
+  "author_name": "Colin Watson",
+  "date": "2025-02-17T00:41:30Z",
+  "message": "Regenerate test certificates\n\nCreated using the following command with OpenSSL 3.4.0:\n\n    for cert in expired mtls valid/server; do\n        make -C tests/certs/$cert clean all\n    done",
+  "files": [
+   "tests/certs/expired/ca/ca-private.key",
+   "tests/certs/expired/ca/ca.crt",
+   "tests/certs/expired/ca/ca.srl",
+   "tests/certs/expired/server/server.csr",
+   "tests/certs/expired/server/server.key",
+   "tests/certs/expired/server/server.pem",
+   "tests/certs/mtls/client/client.csr",
+   "tests/certs/mtls/client/client.key",
+   "tests/certs/mtls/client/client.pem",
+   "tests/certs/valid/server/server.csr",
+   "tests/certs/valid/server/server.key",
+   "tests/certs/valid/server/server.pem"
+  ]
+ },
+ {
+  "sha": "507409661335bd3dd8a7e39f04d07b42e519becc",
+  "author_name": "Colin Watson",
+  "date": "2025-02-17T00:39:07Z",
+  "message": "Add CA constraint to test CA\n\nOtherwise recent versions of OpenSSL reject it as an invalid CA\ncertificate (at least once the test certificates are regenerated).\n\nFixes: #6896",
+  "files": [
+   "tests/certs/expired/ca/ca.cnf"
+  ]
+ },
+ {
+  "sha": "1b7c37ef4e3db003cc52f09da9ab6b947054e245",
+  "author_name": "Nate Prewitt",
+  "date": "2025-02-13T08:49:49-08:00",
+  "message": "Merge pull request #6529 from anupam-arista/patch-1",
+  "files": []
+ },
+ {
+  "sha": "5d31ddbf7b3f512dd3c61952d2c16e980a2b7dc1",
+  "author_name": "anupam-arista",
+  "date": "2025-02-12T17:58:07+05:30",
+  "message": "Update src/requests/models.py\n\nCo-authored-by: Ian Stapleton Cordasco <graffatcolmingov@gmail.com>",
+  "files": [
+   "src/requests/models.py"
+  ]
+ },
+ {
+  "sha": "a2fd25ff34b66ef71b54dfc90e09a4e4152357f6",
+  "author_name": "anupam-arista",
+  "date": "2025-02-11T21:28:59+05:30",
+  "message": "Update models.py",
+  "files": [
+   "src/requests/models.py"
+  ]
+ },
+ {
+  "sha": "d96f9982a276c73ab078b255c94397cf4d7f6cc2",
+  "author_name": "anupam-arista",
+  "date": "2025-02-11T21:25:29+05:30",
+  "message": "Update src/requests/models.py\n\nCo-authored-by: Ian Stapleton Cordasco <graffatcolmingov@gmail.com>",
+  "files": [
+   "src/requests/models.py"
+  ]
+ },
+ {
+  "sha": "b25f2b5ec2a113d4b3a1e6311f617a015f4155f3",
+  "author_name": "anupam-arista",
+  "date": "2025-02-11T07:49:26+05:30",
+  "message": "Merge branch 'psf:main' into patch-1",
+  "files": []
+ },
+ {
+  "sha": "f761e74a4d50d2e88d9e30e660494b36c9d630f8",
+  "author_name": "Nate Prewitt",
+  "date": "2025-02-10T13:13:26-08:00",
+  "message": "Merge pull request #6880 from jakobheine/td/remove-urlrequired-from-docs\n\ndocs(exceptions): Remove unused exception URLRequired from documentation",
+  "files": []
+ },
+ {
+  "sha": "f2a6ae5e3267f64c47059fd64e43c02e0891f523",
+  "author_name": "Nate Prewitt",
+  "date": "2025-02-03T08:58:57-08:00",
+  "message": "Merge pull request #6883 from psf/dependabot/github_actions/actions/setup-python-5.4.0\n\nBump actions/setup-python from 5.3.0 to 5.4.0",
+  "files": []
+ },
+ {
+  "sha": "11f63a330bc7b9026086e3d259f400f9c702b542",
+  "author_name": "dependabot[bot]",
+  "date": "2025-02-03T16:27:40Z",
+  "message": "Bump actions/setup-python from 5.3.0 to 5.4.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 5.3.0 to 5.4.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/0b93645e9fea7318ecaed2b359559ac225c90a2b...42375524e23c412d93fb67b49958b491fce71c38)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "e361622fae03f08b16c48a0a1414a718d9d45d25",
+  "author_name": "jakobheine",
+  "date": "2025-02-01T19:42:06Z",
+  "message": "docs(exceptions): Remove unused exception URLRequired from documentation\n\nThe documentation previously listed `requests.URLRequired` as a valid\nexception, suggesting it would be raised for invalid URLs. However,\nthis exception has been dead code since commit ab27027 (2012) and is\nnever actually raised.\n\nInstead, invalid URLs raise `MissingSchema`, `InvalidSchema`, or\n`InvalidURL`, none of which were documented. This commit removes\n`URLRequired` from the documentation to reflect the actual behavior\nand prevent confusion.\n\nSigned-off-by: jakobheine <me@jakobheine.de>",
+  "files": [
+   "docs/api.rst"
+  ]
+ },
+ {
+  "sha": "fe0583ba49cf162e1a7fe35ae05de6a62b8372fa",
+  "author_name": "Nate Prewitt",
+  "date": "2025-01-27T09:39:35-08:00",
+  "message": "Merge pull request #6875 from psf/dependabot/github_actions/github/codeql-action-3.28.5\n\nBump github/codeql-action from 3.27.0 to 3.28.5",
+  "files": []
+ },
+ {
+  "sha": "8c36da656df15111c423975381f523e0b9db7326",
+  "author_name": "dependabot[bot]",
+  "date": "2025-01-27T16:56:12Z",
+  "message": "Bump github/codeql-action from 3.27.0 to 3.28.5\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.27.0 to 3.28.5.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/662472033e021d55d94146f66f6058822b0b39fd...f6091c0113d1dcf9b98e269ee48e8a7e51b7bdd4)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "b653d80ded3680dc3780557ded01e23074f7e6a4",
+  "author_name": "anupam-arista",
+  "date": "2024-12-13T05:08:45+05:30",
+  "message": "Merge branch 'psf:main' into patch-1",
+  "files": []
+ },
+ {
+  "sha": "23540c93cac97c763fe59e843a08fa2825aa80fd",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-11-10T10:18:36-06:00",
+  "message": "Merge pull request #6824 from psf/nateprewitt-patch-1\n\nRemove old macOS runners",
+  "files": []
+ },
+ {
+  "sha": "ad959acfcfa77c3d9360a5f62df4a4789eed0fb3",
+  "author_name": "Nate Prewitt",
+  "date": "2024-11-09T22:50:30-07:00",
+  "message": "Remove old macOS runners",
+  "files": [
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "a6cf27a77f6f5dd6116096e95c16e7c1a616b419",
+  "author_name": "Nate Prewitt",
+  "date": "2024-11-02T13:13:02-07:00",
+  "message": "Update vulnerability disclosure process (#6820)\n\n* Update contact point for Vulnerability disclosures\n\n* Fix RedHat Contact\n\n* Point vulnerabilities.rst to our .SECURITY file",
+  "files": [
+   ".github/SECURITY.md",
+   "docs/community/vulnerabilities.rst"
+  ]
+ },
+ {
+  "sha": "ed0b1b58023276adc66615f3af9bee22d0d16e1b",
+  "author_name": "Nate Prewitt",
+  "date": "2024-10-28T10:24:23-06:00",
+  "message": "Merge pull request #6817 from psf/dependabot/github_actions/actions/setup-python-5.3.0\n\nBump actions/setup-python from 5.2.0 to 5.3.0",
+  "files": []
+ },
+ {
+  "sha": "1f16cffa436ca8635a4660199a055c6beb171a07",
+  "author_name": "Nate Prewitt",
+  "date": "2024-10-28T10:24:12-06:00",
+  "message": "Merge pull request #6818 from psf/dependabot/github_actions/github/codeql-action-3.27.0\n\nBump github/codeql-action from 3.26.0 to 3.27.0",
+  "files": []
+ },
+ {
+  "sha": "9787d0c09c0d771b97cb5d333f71e988b43d9ffc",
+  "author_name": "dependabot[bot]",
+  "date": "2024-10-28T16:05:20Z",
+  "message": "Bump github/codeql-action from 3.26.0 to 3.27.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.26.0 to 3.27.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/eb055d739abdc2e8de2e5f4ba1a8b246daa779aa...662472033e021d55d94146f66f6058822b0b39fd)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "26664fa57853e97717b0a72244d35eeadaac48d9",
+  "author_name": "dependabot[bot]",
+  "date": "2024-10-28T16:05:11Z",
+  "message": "Bump actions/setup-python from 5.2.0 to 5.3.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 5.2.0 to 5.3.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/f677139bbe7f9c59b41e40162b753c062f5d49a3...0b93645e9fea7318ecaed2b359559ac225c90a2b)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "7335bbf480adc8e6aa88feb2022797a549a00aa3",
+  "author_name": "Nate Prewitt",
+  "date": "2024-09-30T10:32:21-07:00",
+  "message": "Merge pull request #6803 from psf/dependabot/github_actions/actions/checkout-4.2.0\n\nBump actions/checkout from 4.1.0 to 4.2.0",
+  "files": []
+ },
+ {
+  "sha": "0bff2d94e624651d02756e37e50af3cc1569abcf",
+  "author_name": "dependabot[bot]",
+  "date": "2024-09-30T16:34:20Z",
+  "message": "Bump actions/checkout from 4.1.0 to 4.2.0\n\nBumps [actions/checkout](https://github.com/actions/checkout) from 4.1.0 to 4.2.0.\n- [Release notes](https://github.com/actions/checkout/releases)\n- [Changelog](https://github.com/actions/checkout/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/actions/checkout/compare/8ade135a41bc03ea155e62e844d188df1ea18608...d632683dd7b4114ad314bca15554477dd762a938)\n\n---\nupdated-dependencies:\n- dependency-name: actions/checkout\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml",
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "1ae6fc3137a11e11565ed22436aa1e77277ac98c",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-09-19T06:19:03-05:00",
+  "message": "Merge pull request #6802 from graingert/3.13\n\nstart testing on 3.13rc",
+  "files": []
+ },
+ {
+  "sha": "5984296b6a4cea1b20a6747127c335d95595e7d9",
+  "author_name": "Thomas Grainger",
+  "date": "2024-09-18T19:40:02+01:00",
+  "message": "Update tox.ini",
+  "files": [
+   "tox.ini"
+  ]
+ },
+ {
+  "sha": "f519bbae3346b4bf0ff866e0659b7efbcf016eb1",
+  "author_name": "Thomas Grainger",
+  "date": "2024-09-18T19:14:19+01:00",
+  "message": "add trove classifier for 3.13",
+  "files": [
+   "setup.py"
+  ]
+ },
+ {
+  "sha": "314e7c9c701ddbeb6c26ae357a132045709d47f1",
+  "author_name": "Thomas Grainger",
+  "date": "2024-09-18T16:36:43+01:00",
+  "message": "upgrade to pytest-httpbin 2.1.0 final",
+  "files": [
+   "requirements-dev.txt",
+   "setup.py"
+  ]
+ },
+ {
+  "sha": "92f10cec5b3223e90c186b7a04306564cde050dc",
+  "author_name": "Thomas Grainger",
+  "date": "2024-09-18T15:04:53+01:00",
+  "message": "upgrade to pytest-httpbin 2.1.0rc1",
+  "files": [
+   "requirements-dev.txt",
+   "setup.py"
+  ]
+ },
+ {
+  "sha": "83e67c448567cb78490e709925cc335567f656dd",
+  "author_name": "Thomas Grainger",
+  "date": "2024-09-18T15:04:08+01:00",
+  "message": "use allow-prereleases: true instead of 3.13-dev",
+  "files": [
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "0f5ef1be8cb33a28dec67728b8c7220b9c58d366",
+  "author_name": "Thomas Grainger",
+  "date": "2024-09-18T15:03:08+01:00",
+  "message": "Merge branch 'main' of github.com:psf/requests into 3.13",
+  "files": []
+ },
+ {
+  "sha": "f12ccbef6d6b95564da8d22e280d28c39d53f0e9",
+  "author_name": "Nate Prewitt",
+  "date": "2024-09-02T10:37:44-07:00",
+  "message": "Merge pull request #6797 from psf/dependabot/github_actions/actions/setup-python-5.2.0",
+  "files": []
+ },
+ {
+  "sha": "173890a48e9f064f0c034edf45109279d1d90a94",
+  "author_name": "dependabot[bot]",
+  "date": "2024-09-02T16:56:26Z",
+  "message": "Bump actions/setup-python from 5.1.0 to 5.2.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 5.1.0 to 5.2.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/82c7e631bb3cdc910f68e0081d67478d79c6982d...f677139bbe7f9c59b41e40162b753c062f5d49a3)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "a3ce6f007597f14029e6b6f54676c34196aa050e",
+  "author_name": "Nate Prewitt",
+  "date": "2024-08-12T09:54:11-07:00",
+  "message": "Merge pull request #6787 from psf/dependabot/github_actions/github/codeql-action-3.26.0\n\nBump github/codeql-action from 3.25.0 to 3.26.0",
+  "files": []
+ },
+ {
+  "sha": "877892e67e22e25bd3cb0dec780bf45c0e67026e",
+  "author_name": "dependabot[bot]",
+  "date": "2024-08-12T16:23:16Z",
+  "message": "Bump github/codeql-action from 3.25.0 to 3.26.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.25.0 to 3.26.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/df5a14dc28094dc936e103b37d749c6628682b60...eb055d739abdc2e8de2e5f4ba1a8b246daa779aa)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "79b74ef704dc0d804937c0d015c5e9c3b02b79bd",
+  "author_name": "Nate Prewitt",
+  "date": "2024-07-29T18:44:13-07:00",
+  "message": "Merge pull request #6757 from nateprewitt/urllib-1.x-tests",
+  "files": []
+ },
+ {
+  "sha": "15e1f17bb6f3f978787dd23da0268388148bc3d5",
+  "author_name": "Branch Vincent",
+  "date": "2024-07-28T20:49:48-07:00",
+  "message": "remove setuptools test command",
+  "files": [
+   "setup.py"
+  ]
+ },
+ {
+  "sha": "01353d3b4afe3afa838f8f5c08e5f30a5b50cb05",
+  "author_name": "Nate Prewitt",
+  "date": "2024-07-23T04:28:03-07:00",
+  "message": "Invert major version check",
+  "files": [
+   "src/requests/compat.py",
+   "src/requests/utils.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "4e383642a9ebb82a67eaeed199d0fbbb31991e3c",
+  "author_name": "Nate Prewitt",
+  "date": "2024-07-18T09:43:49-07:00",
+  "message": "Add conditional string encoding based on urllib3 major version",
+  "files": [
+   "src/requests/compat.py",
+   "src/requests/utils.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "f8aa36b92d95e6d2f133489f39f9d5c2412f1bd9",
+  "author_name": "Nate Prewitt",
+  "date": "2024-07-01T18:08:04-07:00",
+  "message": "Test on urllib3 1.26.x",
+  "files": [
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "06d2a384418ed86effa2d804d32d4705b91c37eb",
+  "author_name": "anupam-arista",
+  "date": "2024-07-01T10:46:41+05:30",
+  "message": "Merge branch 'psf:main' into patch-1",
+  "files": []
+ },
+ {
+  "sha": "0e322af87745eff34caffe4df68456ebc20d9068",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-29T08:36:10-07:00",
+  "message": "v2.32.3",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "e18879932287c2bf4bcee4ddf6ccb8a69b6fc656",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-29T08:23:39-07:00",
+  "message": "Don't create default SSLContext if ssl module isn't present (#6724)",
+  "files": [
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "145b5399486b56e00250204f033441f3fdf2f3c9",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-24T14:37:06-07:00",
+  "message": "Merge pull request #6716 from sigmavirus24/bug/6715",
+  "files": []
+ },
+ {
+  "sha": "b1d73ddb509a3a2d3e10744e85f9cdebdbde90f0",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-24T09:00:52-07:00",
+  "message": "Don't use default SSLContext with custom poolmanager kwargs",
+  "files": [
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "6badbac6e0d6b5a53872f26401761ad37a9002b8",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-22T14:43:57-06:00",
+  "message": "Update HISTORY.md",
+  "files": [
+   "HISTORY.md"
+  ]
+ },
+ {
+  "sha": "2e1452234d8a3240aa27fc5fa5db93d53d799c25",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-23T11:51:07-07:00",
+  "message": "Start testing on 3.13 beta",
+  "files": [
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "a62a2d35d918baa8e793f7aa4fb41527644dfca5",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-05-22T06:51:48-05:00",
+  "message": "Allow for overriding of specific pool key params\n\nThis re-enables the use case of providing a custom SSLContext via a\nTransport Adapter as broken in #6655 and reported in #6715\n\nCloses #6715",
+  "files": [
+   "HISTORY.md",
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "88dce9d854797c05d0ff296b70e0430535ef8aaf",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-21T11:49:22-07:00",
+  "message": "v2.32.2",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "c98e4d133ef29c46a9b68cd783087218a8075e05",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-21T09:41:18-07:00",
+  "message": "Merge pull request #6710 from nateprewitt/api_rename\n\nMove _get_connection to get_connection_with_tls_context",
+  "files": []
+ },
+ {
+  "sha": "92075b330a30b9883f466a43d3f7566ab849f91b",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-21T09:28:30-07:00",
+  "message": "Add deprecation warning",
+  "files": [
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "aa1461b68aa73e2f6ec0e78c8853b635c76fd099",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-21T05:40:52-07:00",
+  "message": "Move _get_connection to get_connection_with_tls_context",
+  "files": [
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "970e8cec988421bd43da57350723b05c8ce8dc7e",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-20T15:02:29-07:00",
+  "message": "v2.32.1",
+  "files": [
+   "HISTORY.md",
+   "MANIFEST.in",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "d6ebc4a2f1f68b7e355fb7e4dd5ffc0845547f9f",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-20T08:46:49-07:00",
+  "message": "v2.32.0",
+  "files": [
+   "HISTORY.md",
+   "src/requests/__version__.py"
+  ]
+ },
+ {
+  "sha": "9a40d1277807f0a4f26c9a37eea8ec90faa8aadc",
+  "author_name": "agubelu",
+  "date": "2024-05-15T22:07:26+02:00",
+  "message": "Avoid reloading root certificates to improve concurrent performance (#6667)",
+  "files": [
+   "src/requests/adapters.py"
+  ]
+ },
+ {
+  "sha": "0c030f78d24f29a459dbf39b28b4cc765e2153d7",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-05-14T19:15:19-05:00",
+  "message": "Merge pull request #6702 from nateprewitt/no_char_detection\n\nAllow optional char detection dependencies in post-packaging",
+  "files": []
+ },
+ {
+  "sha": "555b870eb19d497ddb67042645420083ec8efb02",
+  "author_name": "Nate Prewitt",
+  "date": "2024-05-14T14:59:26-07:00",
+  "message": "Allow character detection dependencies to be optional in post-packaging steps",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   "src/requests/__init__.py",
+   "src/requests/compat.py",
+   "src/requests/models.py",
+   "src/requests/packages.py"
+  ]
+ },
+ {
+  "sha": "d6dded3f00afcf56a7e866cb0732799045301eb0",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-05-12T16:33:47-05:00",
+  "message": "Merge pull request #6700 from franekmagiera/update-redirect-to-invalid-uri-test\n\nUse an invalid URI that will not cause httpbin to throw 500",
+  "files": []
+ },
+ {
+  "sha": "bf24b7d8d17da34be720c19e5978b2d3bf94a53b",
+  "author_name": "franekmagiera",
+  "date": "2024-05-12T22:08:24+02:00",
+  "message": "Use an invalid URI that will not cause httpbin to throw 500",
+  "files": [
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "2d5f54779ad174035c5437b3b3c1146b0eaf60fe",
+  "author_name": "Nate Prewitt",
+  "date": "2024-04-23T11:50:19-06:00",
+  "message": "Pin 3.8 and 3.9 runners back to macos-13 (#6688)",
+  "files": [
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "f1bb07d39b74d6444e333879f8b8a3d9dd4d2311",
+  "author_name": "Nate Prewitt",
+  "date": "2024-04-15T11:01:39-06:00",
+  "message": "Merge pull request #6687 from psf/dependabot/github_actions/github/codeql-action-3.25.0\n\nBump github/codeql-action from 3.24.0 to 3.25.0",
+  "files": []
+ },
+ {
+  "sha": "60047ade64b0b882cbc94e047198818ab580911e",
+  "author_name": "dependabot[bot]",
+  "date": "2024-04-15T16:40:35Z",
+  "message": "Bump github/codeql-action from 3.24.0 to 3.25.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.24.0 to 3.25.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e8893c57a1f3a2b659b6b55564fdfdbbd2982911...df5a14dc28094dc936e103b37d749c6628682b60)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "31ebb8102c00f8cf8b396a6356743cca4362e07b",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-04-11T14:49:35-05:00",
+  "message": "Merge pull request #6682 from frenzymadness/pytest8\n\nFix compatibility with pytest 8",
+  "files": []
+ },
+ {
+  "sha": "cc23d1c6445d61c1e6905cae4861d6e3c3244274",
+  "author_name": "Lumir Balhar",
+  "date": "2024-04-11T21:10:36+02:00",
+  "message": "Fix compatibility with pytest 8\n\n`pytest.warns(None)` has been deprecated in pytest 7.0.0\nand it's no longer working in pytest 8.\n\nResolves: https://github.com/psf/requests/issues/6679",
+  "files": [
+   "requirements-dev.txt",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "0790ea4250bce844734f625a1a8b37d5581fd8cd",
+  "author_name": "Nate Prewitt",
+  "date": "2024-04-11T07:10:57-07:00",
+  "message": "Merge pull request #6680 from mbeijen/rfc9110\n\nAdd rfc9110 HTTP status code names",
+  "files": []
+ },
+ {
+  "sha": "e45b428960ff3927812fc9b555e2ac627ba95769",
+  "author_name": "Michiel W. Beijen",
+  "date": "2024-04-08T21:47:12+02:00",
+  "message": "Add rfc9110 HTTP status code names\n\nRFC 9110 _HTTP Semantics_ obsoletes some earlier RFCs which defined HTTP\n1.1. It adds some status codes that were previously only used for\nWebDAV to HTTP _proper_ after making the names somewhat more generic.\n\nSee https://www.rfc-editor.org/rfc/rfc9110.html#name-changes-from-rfc-7231\n\nThis commit adds the http status code names from that RFC.",
+  "files": [
+   "src/requests/status_codes.py"
+  ]
+ },
+ {
+  "sha": "2a438c27b5a5828c8ea0dc958112eecffca70b12",
+  "author_name": "Nate Prewitt",
+  "date": "2024-04-01T10:36:47-07:00",
+  "message": "Merge pull request #6677 from psf/dependabot/github_actions/actions/setup-python-5.1.0\n\nBump actions/setup-python from 5.0.0 to 5.1.0",
+  "files": []
+ },
+ {
+  "sha": "2daa7b52a78984ab5e66358052fc8dfe93e251bd",
+  "author_name": "dependabot[bot]",
+  "date": "2024-04-01T17:00:20Z",
+  "message": "Bump actions/setup-python from 5.0.0 to 5.1.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 5.0.0 to 5.1.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/0a5c61591373683505ea898e09a3ea4f39ef2b9c...82c7e631bb3cdc910f68e0081d67478d79c6982d)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "8dd3b26bf59808de24fd654699f592abf6de581e",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-03-18T16:38:16-05:00",
+  "message": "Merge pull request #6302 from flysee/main\n\nFix the proxy_bypass_registry function all returning true in some cases.",
+  "files": []
+ },
+ {
+  "sha": "13d892bdbe9a2aa374959a166e8067c35253705d",
+  "author_name": "flysee",
+  "date": "2024-03-18T22:33:17+08:00",
+  "message": "Additional should_bypass_proxies function test cases",
+  "files": [
+   "src/requests/utils.py",
+   "tests/test_utils.py"
+  ]
+ },
+ {
+  "sha": "1604e20fc87ce212cf3a02474a6d7509b640cbbb",
+  "author_name": "flysee",
+  "date": "2022-12-07T11:24:22Z",
+  "message": "Fix the proxy_bypass_registry function all returning true in some cases.",
+  "files": [
+   "src/requests/utils.py"
+  ]
+ },
+ {
+  "sha": "eeafb6ab3a54ab01cbf864d452ea30f5fdb67ce8",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-03-14T06:25:24-05:00",
+  "message": "Merge pull request #6662 from sigmavirus24/fix-tls-floppy\n\nAdd local TLS server",
+  "files": []
+ },
+ {
+  "sha": "a94e9b5308ffcc3d2913ab873e9810a6601a67da",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-03-13T15:58:45-05:00",
+  "message": "Add local TLS server\n\nThis also adds certificates for testing purposes and files to make it\neasy to generate/regenerate them.\n\nThis also replaces an existing test of how we utilize our pool manager\nsuch that we don't connect to badssl.com\n\nFinally, this adds additional context parameters for our pool manager to\naccount for mTLS certificates used by clients to authenticate to a\nserver.",
+  "files": [
+   "src/requests/adapters.py",
+   "tests/certs/README.md",
+   "tests/certs/expired/Makefile",
+   "tests/certs/expired/README.md",
+   "tests/certs/expired/ca/Makefile",
+   "tests/certs/expired/ca/ca-private.key",
+   "tests/certs/expired/ca/ca.cnf",
+   "tests/certs/expired/ca/ca.crt",
+   "tests/certs/expired/ca/ca.srl",
+   "tests/certs/expired/server/Makefile",
+   "tests/certs/expired/server/cert.cnf",
+   "tests/certs/expired/server/server.csr",
+   "tests/certs/expired/server/server.key",
+   "tests/certs/expired/server/server.pem",
+   "tests/certs/mtls/Makefile",
+   "tests/certs/mtls/README.md",
+   "tests/certs/mtls/client/Makefile",
+   "tests/certs/mtls/client/ca",
+   "tests/certs/mtls/client/cert.cnf",
+   "tests/certs/mtls/client/client.csr",
+   "tests/certs/mtls/client/client.key",
+   "tests/certs/mtls/client/client.pem",
+   "tests/certs/valid/ca",
+   "tests/certs/valid/server/Makefile",
+   "tests/certs/valid/server/cert.cnf",
+   "tests/certs/valid/server/server.csr",
+   "tests/certs/valid/server/server.key",
+   "tests/certs/valid/server/server.pem",
+   "tests/test_requests.py",
+   "tests/testserver/server.py"
+  ]
+ },
+ {
+  "sha": "a58d7f2ffb4d00b46dca2d70a3932a0b37e22fac",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-03-11T06:21:59-05:00",
+  "message": "Merge pull request #6655 from sigmavirus24/fix-tls-floppy\n\nUse TLS settings in selecting connection pool",
+  "files": []
+ },
+ {
+  "sha": "c0813a2d910ea6b4f8438b91d315b8d181302356",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-03-03T07:00:49-06:00",
+  "message": "Use TLS settings in selecting connection pool\n\nPreviously, if someone made a request with `verify=False` then made a\nrequest where they expected verification to be enabled to the same host,\nthey would potentially reuse a connection where TLS had not been\nverified.\n\nThis fixes that issue.",
+  "files": [
+   "src/requests/adapters.py",
+   "tests/test_requests.py",
+   "tox.ini"
+  ]
+ },
+ {
+  "sha": "eea3bbf9ac635f465ee6c9903dc57c677952dafd",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-23T06:26:38-06:00",
+  "message": "Merge pull request #6562 from amkarn258/issue-6223\n\nevery chardet package maps to requests.packages.chardet.* package respectively",
+  "files": []
+ },
+ {
+  "sha": "f3f2611d832e762423f55e08899c64224902dad1",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-23T05:30:46-06:00",
+  "message": "Merge pull request #6583 from EFord36/fix-broken-links\n\nFix broken links in docs",
+  "files": []
+ },
+ {
+  "sha": "a0e79bad059f2d0e6d3c00a2a7311acb2bef4d67",
+  "author_name": "Elliot Ford",
+  "date": "2023-11-24T11:05:45Z",
+  "message": "update broken rfc link\n\nietf seems appropriate here - it's used elsewhere in the requets docs in\nseveral places.",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "0a7f662aa70d39b6c3b5c804be00af5731292550",
+  "author_name": "Elliot Ford",
+  "date": "2023-11-24T11:04:54Z",
+  "message": "Make example URL format a literal rather than an actual link\n\nThe rendered docs 'auto-link' this, which might encourage users to click\nthe link, even though it doesn't go anywhere.",
+  "files": [
+   "HISTORY.md"
+  ]
+ },
+ {
+  "sha": "5f1c3c22ff7c7bb89a4e017e3f336cbc88e189c3",
+  "author_name": "Elliot Ford",
+  "date": "2023-11-24T11:04:32Z",
+  "message": "remove section with broken link to survey",
+  "files": [
+   "docs/user/quickstart.rst"
+  ]
+ },
+ {
+  "sha": "541aa80ca3d0ee771611bd155a5172efaa26d9da",
+  "author_name": "Elliot Ford",
+  "date": "2023-11-24T11:04:16Z",
+  "message": "update urllib3 docs link",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "d3b3399ece1f76387d323983638e0838c06e88ea",
+  "author_name": "Elliot Ford",
+  "date": "2023-11-24T10:44:09Z",
+  "message": "update authors github link\n\nUpdate account link for original author which has changed.",
+  "files": [
+   "AUTHORS.rst"
+  ]
+ },
+ {
+  "sha": "0ec2780c291107b6686996e4b38f3d63e076eda7",
+  "author_name": "Elliot Ford",
+  "date": "2023-11-24T10:37:33Z",
+  "message": "update broken github pagination link",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "b8be93a721792deeadd2f498b8f77cf610e7765f",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-22T18:53:25-06:00",
+  "message": "Merge pull request #6589 from bruceadams/super_len_str_utf-8\n\nEnhance `super_len` to count encoded bytes for str",
+  "files": []
+ },
+ {
+  "sha": "3587a5f869ea7ae2ba6b20d281d810b65aa2418e",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-22T18:49:42-06:00",
+  "message": "Merge pull request #6644 from sigmavirus24/bug/6643\n\nTrim excess leading path separators",
+  "files": []
+ },
+ {
+  "sha": "60389df6d69ce833164696dcf36cbb43336d3426",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-21T19:09:48-06:00",
+  "message": "Trim excess leading path separators\n\nA URL with excess leading / (path-separator)s would cause urllib3 to\nattempt to reparse the request-uri as a full URI with a host and port.\nThis bypasses that logic in ConnectionPool.urlopen by replacing these\nleading /s with just a single /.\n\nCloses #6643",
+  "files": [
+   "src/requests/adapters.py",
+   "tests/test_adapters.py"
+  ]
+ },
+ {
+  "sha": "382fc2c0c6c0ef0874bc65bc1175f97c073e5086",
+  "author_name": "Nate Prewitt",
+  "date": "2024-02-22T12:27:37-08:00",
+  "message": "Merge pull request #6629 from Tarty/fix-6628-jsondecode-error-not-deserializable\n\nFix #6628 - JSONDecodeError are not deserializable",
+  "files": []
+ },
+ {
+  "sha": "7a13c041dbef42f9f3feb14110f02626f6892e9a",
+  "author_name": "Nate Prewitt",
+  "date": "2024-02-20T15:44:43-08:00",
+  "message": "Merge pull request #6642 from nateprewitt/drop_python_37\n\nDrop support for CPython 3.7",
+  "files": []
+ },
+ {
+  "sha": "58cea7a7282999adafdc19a4e82e2d09207ab568",
+  "author_name": "Nate Prewitt",
+  "date": "2024-02-20T15:22:20-08:00",
+  "message": "Drop support for CPython 3.7",
+  "files": [
+   ".github/workflows/run-tests.yml",
+   "README.md",
+   "docs/community/faq.rst",
+   "docs/index.rst",
+   "requirements-dev.txt",
+   "setup.py",
+   "tox.ini"
+  ]
+ },
+ {
+  "sha": "9439fad03848d882f68710fdb3d69eaf02ef21ca",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-20T17:32:57-06:00",
+  "message": "Merge pull request #6641 from nateprewitt/fix_ci\n\nFix CI",
+  "files": []
+ },
+ {
+  "sha": "8fa4302322f1a34053683b7f4c0d2ee5ef0ebd64",
+  "author_name": "Nate Prewitt",
+  "date": "2024-02-20T15:04:04-08:00",
+  "message": "Update Sphinx to work with latest readthedocs requirements",
+  "files": [
+   "docs/requirements.txt"
+  ]
+ },
+ {
+  "sha": "28855fd43a68bf26fec23aa9b548239e13255edf",
+  "author_name": "Nate Prewitt",
+  "date": "2024-02-20T13:58:26-08:00",
+  "message": "Update supported copies of PyPy\n\nDropped support for pypy-3.7 and pypy-3.8 which are no longer maintained by upstream.\nAdded support for pypy-3.10.",
+  "files": [
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "5fc10bf1f5185f330f8471c738ce753b3e231008",
+  "author_name": "Nate Prewitt",
+  "date": "2024-02-20T13:37:25-08:00",
+  "message": "Fix httpbin pin for test suite",
+  "files": [
+   "requirements-dev.txt"
+  ]
+ },
+ {
+  "sha": "46c1a3d8c83754167280e3479bc3ac43b4900ba6",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-20T14:04:33-06:00",
+  "message": "Merge pull request #6640 from nateprewitt/community_docs_cleanup\n\nCleanup defunct links from community docs page",
+  "files": []
+ },
+ {
+  "sha": "6106a63eb6c0fa490efa73d44388ac25b1b08af4",
+  "author_name": "Nate Prewitt",
+  "date": "2024-02-20T11:58:35-08:00",
+  "message": "Cleanup defunct links from community docs page",
+  "files": [
+   "docs/community/out-there.rst"
+  ]
+ },
+ {
+  "sha": "4f3f189d6b7d2a19ff73dfb4a3e39713d4abe01a",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-02-05T20:54:26-06:00",
+  "message": "Merge pull request #6632 from psf/dependabot/github_actions/github/codeql-action-3.24.0\n\nBump github/codeql-action from 3.23.0 to 3.24.0",
+  "files": []
+ },
+ {
+  "sha": "a5a0e4b587c7f2de4250ec965caf21b8fca172e0",
+  "author_name": "dependabot[bot]",
+  "date": "2024-02-05T16:38:01Z",
+  "message": "Bump github/codeql-action from 3.23.0 to 3.24.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.23.0 to 3.24.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/e5f05b81d5b6ff8cfa111c80c22c5fd02a384118...e8893c57a1f3a2b659b6b55564fdfdbbd2982911)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "3ff3ff21dd45957c9e143cd500291959bb15f690",
+  "author_name": "Thomas Dehghani",
+  "date": "2024-01-31T17:07:35+01:00",
+  "message": "Fix #6628 - JSONDecodeError are not deserializable\n\nrequests.exceptions.JSONDecodeError are not deserializable: calling\n`pickle.dumps` followed by `pickle.loads` will trigger an error.\n\nThis is particularly a problem in a process pool, as an attempt to\ndecode json on an invalid json document will result in the entire\nprocess pool crashing.\n\nThis is due to the MRO of the `requests.exceptions.JSONDecodeError`\nclass: the `__reduce__` method called when pickling an instance is not\nthe one from the JSON library parent: two out of three args expected\nfor instantiation will be dropped, and the instance can't be\ndeserialised.\n\nBy specifying in the class which parent `__reduce__` method should be\ncalled, the bug is fixed as all args are carried over in the resulting\npickled bytes.",
+  "files": [
+   "src/requests/exceptions.py",
+   "tests/test_requests.py"
+  ]
+ },
+ {
+  "sha": "96b22fa18c00831656ee4b286bf1c9062459b00a",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2024-01-08T11:56:01-06:00",
+  "message": "Merge pull request #6619 from psf/dependabot/github_actions/github/codeql-action-3.23.0\n\nBump github/codeql-action from 3.22.11 to 3.23.0",
+  "files": []
+ },
+ {
+  "sha": "b0e6c9bf85378acd079ca84a4481f361b47a2147",
+  "author_name": "dependabot[bot]",
+  "date": "2024-01-08T17:01:37Z",
+  "message": "Bump github/codeql-action from 3.22.11 to 3.23.0\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 3.22.11 to 3.23.0.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/b374143c1149a9115d881581d29b8390bbcbb59c...e5f05b81d5b6ff8cfa111c80c22c5fd02a384118)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-type: direct:production\n  update-type: version-update:semver-minor\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "72eccc8dd8b7c272e520f22b0256386c80864e94",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-23T12:33:48-06:00",
+  "message": "Merge pull request #6612 from miketheman/fix-docs-urls\n\ndocs: specify sphinx dirhtml builder, use references instead of absolutes",
+  "files": []
+ },
+ {
+  "sha": "25939d8784dc8bec784b8129152efa4443daa82f",
+  "author_name": "Mike Fiedler",
+  "date": "2023-12-23T18:15:33Z",
+  "message": "add myself\n\nSigned-off-by: Mike Fiedler <miketheman@gmail.com>",
+  "files": [
+   "AUTHORS.rst"
+  ]
+ },
+ {
+  "sha": "bfba9dc68c841b78ca51e6302d3283d33167f773",
+  "author_name": "Mike Fiedler",
+  "date": "2023-12-23T18:09:08Z",
+  "message": "docs: replace concrete URLs with references\n\nAny development links will now refer back to the generated docs.\n\nSigned-off-by: Mike Fiedler <miketheman@gmail.com>",
+  "files": [
+   "docs/_templates/sidebarintro.html",
+   "docs/_templates/sidebarlogo.html",
+   "docs/community/faq.rst",
+   "docs/user/quickstart.rst"
+  ]
+ },
+ {
+  "sha": "f23346a9b8e74de01220cce96c037bbd2404a1c6",
+  "author_name": "Mike Fiedler",
+  "date": "2023-12-23T17:36:34Z",
+  "message": "Revert \"Merge pull request #6605 from jaikishpai/fix-#6604\"\n\nThis reverts commit 1396eb6f7a1116d49f1f0df0ddf895343f84af64, reversing\nchanges made to e4c821a24778c3a33beec2aa86f3d58e3d94b58c.",
+  "files": [
+   "docs/_templates/sidebarintro.html",
+   "docs/_templates/sidebarlogo.html"
+  ]
+ },
+ {
+  "sha": "f3f978441916389abcb2f2a72522955d551326e9",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-23T11:24:56-06:00",
+  "message": "Merge pull request #6613 from miketheman/add-socks-label\n\ndocs: add label to socks heading",
+  "files": []
+ },
+ {
+  "sha": "b5bd0f14cc6fe12a712d21d7881aab59d0dd9951",
+  "author_name": "Mike Fiedler",
+  "date": "2023-12-23T17:17:34Z",
+  "message": "docs: add label to socks heading\n\nWhen trying to link via intersphinx, a label must be used.\nOtherwise a full URL is required, which is less desirable.\n\nSigned-off-by: Mike Fiedler <miketheman@gmail.com>",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "242d3113c09d10ba9a11dbcc05e0310a1e7568af",
+  "author_name": "Mike Fiedler",
+  "date": "2023-12-23T16:16:50Z",
+  "message": "docs: specify sphinx dirhtml builder\n\nWith the requirement of a configuration file, the default builder\nof `dirhtml` that RTD used to use is no longer specified.\nThis leads to URLs ending in `.html` now, which\nbreaks other exisitng references.\n\nRefs: #6603\nRefs: https://docs.readthedocs.io/en/stable/config-file/v2.html#sphinx-builder\nRefs: https://www.sphinx-doc.org/en/master/usage/builders/index.html#sphinx.builders.dirhtml.DirectoryHTMLBuilder\n\nSigned-off-by: Mike Fiedler <miketheman@gmail.com>",
+  "files": [
+   ".readthedocs.yaml"
+  ]
+ },
+ {
+  "sha": "1396eb6f7a1116d49f1f0df0ddf895343f84af64",
+  "author_name": "Nate Prewitt",
+  "date": "2023-12-19T22:17:55-08:00",
+  "message": "Merge pull request #6605 from jaikishpai/fix-#6604\n\nfix for ##6604",
+  "files": []
+ },
+ {
+  "sha": "e4c821a24778c3a33beec2aa86f3d58e3d94b58c",
+  "author_name": "Nate Prewitt",
+  "date": "2023-12-18T09:30:42-08:00",
+  "message": "Merge pull request #6607 from psf/dependabot/github_actions/github/codeql-action-3.22.11\n\nBump github/codeql-action from 2.22.1 to 3.22.11",
+  "files": []
+ },
+ {
+  "sha": "421b1f175766065e2feb569990c528df16c2874f",
+  "author_name": "dependabot[bot]",
+  "date": "2023-12-18T16:39:47Z",
+  "message": "Bump github/codeql-action from 2.22.1 to 3.22.11\n\nBumps [github/codeql-action](https://github.com/github/codeql-action) from 2.22.1 to 3.22.11.\n- [Release notes](https://github.com/github/codeql-action/releases)\n- [Changelog](https://github.com/github/codeql-action/blob/main/CHANGELOG.md)\n- [Commits](https://github.com/github/codeql-action/compare/fdcae64e1484d349b3366718cdfef3d404390e85...b374143c1149a9115d881581d29b8390bbcbb59c)\n\n---\nupdated-dependencies:\n- dependency-name: github/codeql-action\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/codeql-analysis.yml"
+  ]
+ },
+ {
+  "sha": "1447bccc057e7fbffdfecd75cd4922702489a14b",
+  "author_name": "Jaikish Pai",
+  "date": "2023-12-17T22:34:30+01:00",
+  "message": "fix for ##6604",
+  "files": [
+   "docs/_templates/sidebarintro.html",
+   "docs/_templates/sidebarlogo.html"
+  ]
+ },
+ {
+  "sha": "3b5978fc5d1c121d70e83ddf59379cf36418b4ce",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-16T14:24:02-06:00",
+  "message": "Merge pull request #6592 from atatuzuner61/bug/6584\n\n\"TOO_EARLY\" type definition for status code 425",
+  "files": []
+ },
+ {
+  "sha": "1ddf014f477c322197400c365aef9fab56e25e40",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-16T07:30:18-06:00",
+  "message": "Merge pull request #6600 from MestreLion/MestreLion-connection-timeout-note\n\nAdd note on connection timeout being larger than specified. Fix #5773",
+  "files": []
+ },
+ {
+  "sha": "92f9e431c99d5e0776a00c10a90dfdf11cd45ba0",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-16T07:29:50-06:00",
+  "message": "Update docs/user/advanced.rst\n\nAdd note about wall clock too",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "951dd15fa619b23aba6b72532f1aac30b69389b7",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-16T07:26:23-06:00",
+  "message": "Update docs/user/advanced.rst\n\nfix indentation for note so it renders properly",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "51d0d83eaf7cd82526443424f61f7b5cfad82cde",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-16T07:24:37-06:00",
+  "message": "Merge pull request #6603 from nsoranzo/rtd_config\n\nAdd now mandatory readthedocs config file",
+  "files": []
+ },
+ {
+  "sha": "c7c2ebf1a7b4b0f4149b3935b781e1392015e2d6",
+  "author_name": "Nicola Soranzo",
+  "date": "2023-12-15T20:59:51Z",
+  "message": "Add now mandatory readthedocs config file\n\nDocs builds currently fail with:\n\n```\nProblem in your project's configuration. No default configuration file found at repository's root. See https://docs.readthedocs.io/en/stable/config-file/\n```\n\nSee e.g. https://readthedocs.org/projects/requests/builds/22842479/",
+  "files": [
+   ".readthedocs.yaml"
+  ]
+ },
+ {
+  "sha": "a64f32ba453bc19aa679018838bee8ef8cc9a68b",
+  "author_name": "Rodrigo Silva",
+  "date": "2023-12-13T10:05:12-03:00",
+  "message": "Add note on connection timeout being larger than specified. Fix #5773\n\nOn servers with multiple IPs, such as IPv4 and IPv6, `urllib3` tries each address sequentially until one successfully connects, using the specified timeout for _each_ attempt, leading to a total connection timeout that is a _multiple_ of the requested time.",
+  "files": [
+   "docs/user/advanced.rst"
+  ]
+ },
+ {
+  "sha": "a25fde6989f8df5c3d823bc9f2e2fc24aa71f375",
+  "author_name": "Nate Prewitt",
+  "date": "2023-12-11T08:11:07-08:00",
+  "message": "Merge pull request #6599 from psf/dependabot/github_actions/actions/setup-python-5.0.0",
+  "files": []
+ },
+ {
+  "sha": "ba67dc8dccd114faf8347e66c56baaa9d72f6429",
+  "author_name": "dependabot[bot]",
+  "date": "2023-12-11T16:07:15Z",
+  "message": "Bump actions/setup-python from 4.7.0 to 5.0.0\n\nBumps [actions/setup-python](https://github.com/actions/setup-python) from 4.7.0 to 5.0.0.\n- [Release notes](https://github.com/actions/setup-python/releases)\n- [Commits](https://github.com/actions/setup-python/compare/61a6322f88396a6271a6ee3565807d608ecaddd1...0a5c61591373683505ea898e09a3ea4f39ef2b9c)\n\n---\nupdated-dependencies:\n- dependency-name: actions/setup-python\n  dependency-type: direct:production\n  update-type: version-update:semver-major\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+  "files": [
+   ".github/workflows/lint.yml",
+   ".github/workflows/run-tests.yml"
+  ]
+ },
+ {
+  "sha": "769bc3ae5cc8cb42242e4505b310dd10889cb54c",
+  "author_name": "Nate Prewitt",
+  "date": "2023-12-01T09:18:02-08:00",
+  "message": "Merge pull request #6596 from psf/fix-autoclose-automtaion\n\nUpdate close-issues.yml",
+  "files": []
+ },
+ {
+  "sha": "d6ffd868ee3730f4e5c7d1595da37e2027a93eb8",
+  "author_name": "Ian Stapleton Cordasco",
+  "date": "2023-12-01T08:05:59-06:00",
+  "message": "Update close-issues.yml\n\nI noticed the auto-labeling was working but not the auto-closing. Looking at recent actions runs I see that we need to specify the token even if we're not giving our own special token. See https://github.com/psf/requests/actions/runs/7057701782/job/19211845073#step:2:13 for additional context, namely\n\n```\n gh: To use GitHub CLI in a GitHub Actions workflow, set the GH_TOKEN environment variable. Example:\n  env:\n    GH_TOKEN: ${{ github.token }}\n```",
+  "files": [
+   ".github/workflows/close-issues.yml"
+  ]
+ },
+ {
+  "sha": "3fd309a5c14e4cfbd96bea6c8e71b4958fe090bb",
+  "author_name": "Bruce Adams",
+  "date": "2023-11-28T13:17:49-05:00",
+  "message": "Enhance `super_len` to count encoded bytes for str\n\nThis fixes issue #6586",
+  "files": [
+   "src/requests/utils.py"
+  ]
+ }
+]

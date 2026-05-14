@@ -18,6 +18,9 @@ venv/
 .pytest_cache/
 .ruff_cache/
 
+# Fixture build source (transient git clone — fixtures/ is committed, this is not)
+.fixtures_src/
+
 # Traces / artifacts
 traces/
 *.jsonl
