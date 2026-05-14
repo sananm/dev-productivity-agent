@@ -102,13 +102,50 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (populated by roadmapper) | | |
+| INGEST-01 | Phase 1 | Pending |
+| INGEST-02 | Phase 1 | Pending |
+| INGEST-03 | Phase 1 | Pending |
+| INGEST-04 | Phase 1 | Pending |
+| INGEST-05 | Phase 1 | Pending |
+| GH-01 | Phase 1 | Pending |
+| GH-05 | Phase 1 | Pending |
+| DEPLOY-01 | Phase 1 | Pending |
+| RAG-01 | Phase 2 | Pending |
+| RAG-02 | Phase 2 | Pending |
+| RAG-03 | Phase 2 | Pending |
+| RAG-04 | Phase 2 | Pending |
+| AGENT-01 | Phase 3 | Pending |
+| AGENT-02 | Phase 3 | Pending |
+| AGENT-03 | Phase 3 | Pending |
+| AGENT-04 | Phase 3 | Pending |
+| AGENT-05 | Phase 3 | Pending |
+| AGENT-06 | Phase 3 | Pending |
+| AGENT-07 | Phase 3 | Pending |
+| AGENT-08 | Phase 3 | Pending |
+| GH-02 | Phase 3 | Pending |
+| GH-03 | Phase 3 | Pending |
+| GH-04 | Phase 3 | Pending |
+| CLI-01 | Phase 4 | Pending |
+| CLI-02 | Phase 4 | Pending |
+| CLI-03 | Phase 4 | Pending |
+| CLI-04 | Phase 4 | Pending |
+| CLI-05 | Phase 4 | Pending |
+| CLI-06 | Phase 4 | Pending |
+| CLI-07 | Phase 4 | Pending |
+| EVAL-01 | Phase 5 | Pending |
+| EVAL-02 | Phase 5 | Pending |
+| EVAL-03 | Phase 5 | Pending |
+| EVAL-04 | Phase 5 | Pending |
+| EVAL-05 | Phase 5 | Pending |
+| EVAL-06 | Phase 5 | Pending |
+| EVAL-07 | Phase 5 | Pending |
+| DEPLOY-02 | Phase 6 | Pending |
 
 **Coverage:**
 - v1 requirements: 36 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 36 ⚠️
+- Mapped to phases: 36
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-05-14*
-*Last updated: 2026-05-14 after initial definition*
+*Last updated: 2026-05-14 after roadmap creation*
