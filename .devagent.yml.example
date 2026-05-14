@@ -1,0 +1,4 @@
+# Optional per-project CLI config. Copy to .devagent.yml.
+# Precedence: command-line flag > this file > environment defaults.
+repo: psf/requests
+api_base_url: http://localhost:8000
