@@ -1,0 +1,22 @@
+# Phase 1: PostgreSQL + pgvector. The api and langfuse services are added in
+# later phases. pgvector extension + tables are created by `devagent.db.migrate`,
+# NOT by an init script — the HNSW index is deferred until after data load.
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: devagent
+      POSTGRES_PASSWORD: devagent
+      POSTGRES_DB: devagent
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devagent"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

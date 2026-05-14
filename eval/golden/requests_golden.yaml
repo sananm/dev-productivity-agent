@@ -1,0 +1,292 @@
+# Hand-written golden eval cases for the default target repo (psf/requests).
+# These anchor dataset quality; eval/generate.py expands them to 200+ cases.
+# expected_tools = ordered tool names the executor should call.
+# expected_plan  = expected planner step descriptions (semantic, not literal).
+repo: psf/requests
+cases:
+  # --- code_qa --------------------------------------------------------
+  - id: req-codeqa-001
+    query: How does requests handle HTTP redirects?
+    category: code_qa
+    expected_tools: [search_code, fetch_file]
+    expected_plan:
+      - locate redirect-handling code
+      - read the resolve_redirects implementation
+    ground_truth: >
+      Redirects are handled by Session.resolve_redirects in requests/sessions.py,
+      which iterates over redirect responses, rebuilds the request, and respects
+      max redirect limits.
+
+  - id: req-codeqa-002
+    query: Where is the connection pooling logic implemented?
+    category: code_qa
+    expected_tools: [search_code, fetch_file]
+    expected_plan:
+      - search for the HTTP adapter
+      - read HTTPAdapter in requests/adapters.py
+    ground_truth: >
+      Connection pooling lives in requests/adapters.py via HTTPAdapter, which
+      wraps urllib3 PoolManager.
+
+  - id: req-codeqa-003
+    query: What does the Session object do and where is it defined?
+    category: code_qa
+    expected_tools: [fetch_file]
+    expected_plan:
+      - read requests/sessions.py
+    ground_truth: >
+      The Session class in requests/sessions.py persists cookies, connection
+      pooling, and configuration across multiple requests.
+
+  - id: req-codeqa-004
+    query: How are cookies persisted between requests?
+    category: code_qa
+    expected_tools: [search_code, fetch_file]
+    expected_plan:
+      - find cookie jar handling
+      - read cookies.py / sessions.py
+    ground_truth: >
+      Cookies are stored in a RequestsCookieJar (requests/cookies.py) attached to
+      the Session and merged into each outgoing request.
+
+  - id: req-codeqa-005
+    query: Where is the PreparedRequest class and what is it for?
+    category: code_qa
+    expected_tools: [fetch_file]
+    expected_plan:
+      - read requests/models.py
+    ground_truth: >
+      PreparedRequest in requests/models.py holds the fully-built request (URL,
+      headers, body) ready to be sent by an adapter.
+
+  - id: req-codeqa-006
+    query: How does requests decide the encoding of a response body?
+    category: code_qa
+    expected_tools: [search_code, fetch_file]
+    expected_plan:
+      - find encoding detection
+      - read Response.text / get_encoding helpers
+    ground_truth: >
+      Response.text uses Response.encoding, derived from the Content-Type header
+      via get_encoding_from_headers in requests/utils.py, falling back to chardet.
+
+  - id: req-codeqa-007
+    query: What exceptions does requests raise and where are they defined?
+    category: code_qa
+    expected_tools: [fetch_file]
+    expected_plan:
+      - read requests/exceptions.py
+    ground_truth: >
+      requests/exceptions.py defines RequestException and subclasses such as
+      ConnectionError, Timeout, HTTPError, and TooManyRedirects.
+
+  - id: req-codeqa-008
+    query: How is authentication handled in requests?
+    category: code_qa
+    expected_tools: [fetch_file]
+    expected_plan:
+      - read requests/auth.py
+    ground_truth: >
+      requests/auth.py implements HTTPBasicAuth, HTTPDigestAuth, and the AuthBase
+      interface applied to a PreparedRequest before sending.
+
+  - id: req-codeqa-009
+    query: Where does requests set default headers like User-Agent?
+    category: code_qa
+    expected_tools: [search_code, fetch_file]
+    expected_plan:
+      - search for default_headers
+      - read requests/utils.py
+    ground_truth: >
+      default_headers() in requests/utils.py builds the default header set,
+      including the User-Agent produced by default_user_agent().
+
+  - id: req-codeqa-010
+    query: How does the timeout parameter propagate to the underlying connection?
+    category: code_qa
+    expected_tools: [search_code, fetch_file]
+    expected_plan:
+      - trace timeout from request() to the adapter
+      - read HTTPAdapter.send
+    ground_truth: >
+      The timeout argument flows from Session.request through to
+      HTTPAdapter.send, which passes it to urllib3's urlopen.
+
+  # --- issue_triage ---------------------------------------------------
+  - id: req-triage-001
+    query: Summarize the currently open issues in the repo.
+    category: issue_triage
+    expected_tools: [list_issues]
+    expected_plan:
+      - list open issues
+      - summarize themes
+    ground_truth: >
+      A correct answer lists open issues with their numbers/titles and groups
+      them into themes (bugs, feature requests, docs).
+
+  - id: req-triage-002
+    query: Are there any open issues related to SSL or certificate verification?
+    category: issue_triage
+    expected_tools: [list_issues]
+    expected_plan:
+      - list open issues
+      - filter for SSL/certificate topics
+    ground_truth: >
+      The answer should scan open issues and report those mentioning SSL, TLS,
+      or certificate verification, or state none exist.
+
+  - id: req-triage-003
+    query: Which open issues look like good first issues for a new contributor?
+    category: issue_triage
+    expected_tools: [list_issues]
+    expected_plan:
+      - list open issues filtered by label
+      - identify beginner-friendly ones
+    ground_truth: >
+      The answer should surface issues labelled good first issue or similar, or
+      reason about low-complexity issues from titles.
+
+  - id: req-triage-004
+    query: Summarize the most recently updated pull request.
+    category: issue_triage
+    expected_tools: [list_issues, get_pr_diff]
+    expected_plan:
+      - list issues/PRs sorted by update
+      - fetch the diff of the latest PR
+      - summarize the change
+    ground_truth: >
+      The answer identifies the most recently updated PR and describes the files
+      it changes and its intent.
+
+  - id: req-triage-005
+    query: How many open issues are there and what are the common labels?
+    category: issue_triage
+    expected_tools: [list_issues]
+    expected_plan:
+      - list open issues
+      - aggregate label counts
+    ground_truth: >
+      The answer reports an open-issue count and the most frequent labels.
+
+  - id: req-triage-006
+    query: Find open issues that mention timeouts or hanging requests.
+    category: issue_triage
+    expected_tools: [list_issues]
+    expected_plan:
+      - list open issues
+      - filter for timeout/hang keywords
+    ground_truth: >
+      The answer lists open issues whose titles/bodies mention timeout or
+      hanging behaviour, or states none were found.
+
+  # --- cross_source ---------------------------------------------------
+  - id: req-cross-001
+    query: What recent changes were made to the redirect handling code?
+    category: cross_source
+    expected_tools: [search_code, list_commits]
+    expected_plan:
+      - locate redirect code in sessions.py
+      - list commits touching that file
+      - summarize recent changes
+    ground_truth: >
+      The answer connects requests/sessions.py to its recent commit history and
+      summarizes what changed.
+
+  - id: req-cross-002
+    query: Is there an open issue about connection pooling, and which file would fix it?
+    category: cross_source
+    expected_tools: [list_issues, search_code]
+    expected_plan:
+      - list open issues for pooling topics
+      - locate the adapter code
+      - link issue to file
+    ground_truth: >
+      The answer ties any pooling-related issue to requests/adapters.py
+      (HTTPAdapter), or states no such issue exists.
+
+  - id: req-cross-003
+    query: Who last modified the authentication module and what did they change?
+    category: cross_source
+    expected_tools: [list_commits]
+    expected_plan:
+      - list commits scoped to requests/auth.py
+      - report the latest author and change
+    ground_truth: >
+      The answer reports the most recent commit touching requests/auth.py, its
+      author, and a summary of the change.
+
+  - id: req-cross-004
+    query: Has the timeout behavior changed recently, and is there an issue tracking it?
+    category: cross_source
+    expected_tools: [list_commits, list_issues]
+    expected_plan:
+      - list commits touching timeout-related files
+      - list issues mentioning timeout
+      - correlate them
+    ground_truth: >
+      The answer correlates recent timeout-related commits with any open issue
+      discussing timeout behaviour.
+
+  - id: req-cross-005
+    query: What does the latest commit to models.py change and why?
+    category: cross_source
+    expected_tools: [list_commits, fetch_file]
+    expected_plan:
+      - list commits for requests/models.py
+      - read the file or commit context
+      - explain the change
+    ground_truth: >
+      The answer reports the most recent commit to requests/models.py and
+      explains its purpose from the commit message.
+
+  # --- action (write) -------------------------------------------------
+  - id: req-action-001
+    query: Open an issue proposing better documentation for the timeout parameter.
+    category: action
+    expected_tools: [create_issue]
+    expected_plan:
+      - draft an issue title and body about timeout docs
+      - request confirmation
+      - create the issue
+    ground_truth: >
+      The agent drafts a clear issue (title + body) about improving timeout
+      documentation and only creates it after explicit user confirmation.
+
+  - id: req-action-002
+    query: Comment on the most recently updated PR thanking the contributor.
+    category: action
+    expected_tools: [list_issues, comment_on_pr]
+    expected_plan:
+      - find the latest PR
+      - draft a thank-you comment
+      - request confirmation
+      - post the comment
+    ground_truth: >
+      The agent identifies the latest PR, drafts a courteous comment, and posts
+      it only after explicit user confirmation.
+
+  - id: req-action-003
+    query: File an issue summarizing the open SSL-related problems.
+    category: action
+    expected_tools: [list_issues, create_issue]
+    expected_plan:
+      - list open SSL-related issues
+      - draft a summary issue
+      - request confirmation
+      - create the issue
+    ground_truth: >
+      The agent gathers SSL-related issues, drafts a summary issue, and creates
+      it only after explicit user confirmation.
+
+  - id: req-action-004
+    query: Open an issue noting that the connection pooling logic could use more tests.
+    category: action
+    expected_tools: [search_code, create_issue]
+    expected_plan:
+      - locate the pooling code in adapters.py
+      - draft an issue about test coverage
+      - request confirmation
+      - create the issue
+    ground_truth: >
+      The agent references requests/adapters.py, drafts a test-coverage issue,
+      and creates it only after explicit user confirmation.
