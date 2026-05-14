@@ -11,6 +11,7 @@ COPY devagent ./devagent
 RUN pip install --upgrade pip && pip install ".[eval]"
 
 COPY eval ./eval
+COPY fixtures ./fixtures
 
 EXPOSE 8000
 

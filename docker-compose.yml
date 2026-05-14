@@ -1,6 +1,8 @@
-# Phase 1: PostgreSQL + pgvector. The api and langfuse services are added in
-# later phases. pgvector extension + tables are created by `devagent.db.migrate`,
-# NOT by an init script — the HNSW index is deferred until after data load.
+# PostgreSQL + pgvector and the FastAPI agent service.
+# pgvector extension + tables are created by `devagent migrate` (run once after
+# `up`), NOT by an init script — the HNSW index is deferred until after data load.
+# The default LLM backend (Ollama) runs on the host; the api container reaches it
+# via host.docker.internal. Langfuse is added in Phase 6.
 services:
   postgres:
     image: pgvector/pgvector:pg16
@@ -17,6 +19,23 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+
+  api:
+    build: .
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://devagent:devagent@postgres:5432/devagent
+      OLLAMA_HOST: http://host.docker.internal:11434
+      LLM_BACKEND: ${LLM_BACKEND:-ollama}
+      EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-local}
+      GITHUB_MODE: ${GITHUB_MODE:-fixtures}
+      DEFAULT_REPO: ${DEFAULT_REPO:-psf/requests}
+    ports:
+      - "8000:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 volumes:
   pgdata:
