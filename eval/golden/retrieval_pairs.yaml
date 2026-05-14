@@ -1,0 +1,50 @@
+# Held-out query -> expected-chunk pairs for the Hit Rate@5 retrieval gate.
+# A pair "hits" if a top-5 retrieved chunk matches expected_file (file_path
+# substring) or contains expected_substring (case-insensitive). 20 pairs across
+# all four source types; the gate requires Hit Rate@5 >= 0.75.
+repo: psf/requests
+pairs:
+  # --- code ---
+  - query: How does the Session resolve redirects?
+    expected_file: src/requests/sessions.py
+  - query: Where is the HTTPAdapter and connection pooling implemented?
+    expected_file: src/requests/adapters.py
+  - query: What is the PreparedRequest class?
+    expected_file: src/requests/models.py
+  - query: How is HTTP Basic and Digest authentication implemented?
+    expected_file: src/requests/auth.py
+  - query: Where is the RequestsCookieJar defined?
+    expected_file: src/requests/cookies.py
+  - query: What exception classes does requests define?
+    expected_file: src/requests/exceptions.py
+  - query: Where are default headers and the user agent string built?
+    expected_file: src/requests/utils.py
+  - query: Where are the top-level get and post functions defined?
+    expected_file: src/requests/api.py
+  - query: How does the Response object expose status codes and content?
+    expected_file: src/requests/models.py
+  - query: Where is the HTTP status code lookup table?
+    expected_file: src/requests/status_codes.py
+  # --- doc ---
+  - query: What does the requests documentation say about making a request?
+    expected_file: docs/
+  - query: Quickstart guide for sending a GET request
+    expected_file: docs/
+  - query: advanced usage documentation for sessions
+    expected_file: docs/
+  # --- issue ---
+  - query: Is there an open issue about SSL certificate verification failing?
+    expected_substring: SSLError raised even when verify=False
+  - query: open issue about the connection pool being exhausted
+    expected_substring: Connection pool exhausted under high concurrency
+  - query: issue requesting better documentation for the timeout parameter
+    expected_substring: Document the timeout parameter
+  - query: open issue about requests hanging on a stalled streaming response
+    expected_substring: hangs indefinitely when server stops responding
+  # --- commit ---
+  - query: recent commit bumping the requests version number
+    expected_file: src/requests/__version__.py
+  - query: changes recorded in the project history file
+    expected_file: HISTORY.md
+  - query: recent commit touching the changelog
+    expected_file: HISTORY.md

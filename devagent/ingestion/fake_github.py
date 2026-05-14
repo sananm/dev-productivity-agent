@@ -70,6 +70,9 @@ class FakeGitHubClient:
                 "message": commit["message"],
                 "author": {"name": commit["author_name"], "date": commit["date"]},
             },
+            # Fixture-only convenience: the live API omits files on the list
+            # endpoint. fetch_commits uses it when present, ignores it otherwise.
+            "files": [{"filename": f} for f in commit.get("files", [])],
         }
 
     # -- routing -----------------------------------------------------------

@@ -139,9 +139,21 @@ def fetch_commits(client: GitHubClient, repo: str, *, max_items: int = 300) -> I
         sha = commit["sha"]
         message = commit["commit"]["message"]
         author = commit["commit"]["author"]
-        text = f"Commit {sha[:10]} by {author.get('name')} on {author.get('date')}\n\n{message}"
+        # Touched files are included by the fixtures backend; the live list
+        # endpoint omits them, so this is best-effort.
+        files = [f["filename"] for f in commit.get("files", [])]
+        files_line = f"\n\nFiles changed: {', '.join(files)}" if files else ""
+        text = (
+            f"Commit {sha[:10]} by {author.get('name')} on {author.get('date')}\n\n"
+            f"{message}{files_line}"
+        )
         yield RawDoc(
             text=text,
             source_type="commit",
-            metadata={"repo": repo, "commit_sha": sha, "date": author.get("date")},
+            metadata={
+                "repo": repo,
+                "commit_sha": sha,
+                "date": author.get("date"),
+                "files": files,
+            },
         )

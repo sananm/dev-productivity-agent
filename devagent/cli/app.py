@@ -45,6 +45,14 @@ def index(
     console.print("[green]done[/green]")
 
 
+@app.command("validate-rag")
+def validate_rag() -> None:
+    """Run the Hit Rate@5 retrieval gate (must pass before agents use the retriever)."""
+    from devagent.rag.validate import main as run_validate
+
+    run_validate()
+
+
 @app.command("seed-eval")
 def seed_eval() -> None:
     """Seed the golden evaluation cases into the eval_cases table."""
