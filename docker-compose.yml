@@ -1,8 +1,13 @@
-# PostgreSQL + pgvector and the FastAPI agent service.
+# PostgreSQL + pgvector, the FastAPI agent service, and (optional) self-hosted
+# Langfuse for tracing.
+#
+#   docker compose up -d                      # postgres + api
+#   docker compose --profile langfuse up -d   # also start Langfuse
+#
 # pgvector extension + tables are created by `devagent migrate` (run once after
 # `up`), NOT by an init script — the HNSW index is deferred until after data load.
 # The default LLM backend (Ollama) runs on the host; the api container reaches it
-# via host.docker.internal. Langfuse is added in Phase 6.
+# via host.docker.internal.
 services:
   postgres:
     image: pgvector/pgvector:pg16
@@ -32,10 +37,45 @@ services:
       EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-local}
       GITHUB_MODE: ${GITHUB_MODE:-fixtures}
       DEFAULT_REPO: ${DEFAULT_REPO:-psf/requests}
+      LANGFUSE_PUBLIC_KEY: ${LANGFUSE_PUBLIC_KEY:-}
+      LANGFUSE_SECRET_KEY: ${LANGFUSE_SECRET_KEY:-}
+      LANGFUSE_HOST: ${LANGFUSE_HOST:-http://langfuse:3000}
     ports:
       - "8000:8000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
+  # --- optional observability (docker compose --profile langfuse up) ---
+  langfuse-db:
+    image: postgres:16
+    profiles: ["langfuse"]
+    environment:
+      POSTGRES_USER: langfuse
+      POSTGRES_PASSWORD: langfuse
+      POSTGRES_DB: langfuse
+    volumes:
+      - langfuse_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U langfuse"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  langfuse:
+    image: langfuse/langfuse:2
+    profiles: ["langfuse"]
+    depends_on:
+      langfuse-db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://langfuse:langfuse@langfuse-db:5432/langfuse
+      NEXTAUTH_URL: http://localhost:3000
+      NEXTAUTH_SECRET: devagent-local-langfuse-secret
+      SALT: devagent-local-langfuse-salt
+      TELEMETRY_ENABLED: "false"
+    ports:
+      - "3000:3000"
+
 volumes:
   pgdata:
+  langfuse_pgdata:

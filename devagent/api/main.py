@@ -65,8 +65,14 @@ def _state_values(state) -> dict:
 
 def _run_stream(stream_input, config):
     """Sync generator: drive the graph stream and yield SSE event dicts."""
+    from devagent.observability.langfuse_setup import trace_callbacks
+
     graph = get_graph()
     thread_id = config["configurable"]["thread_id"]
+    # attach Langfuse tracing if configured — every node + LLM call becomes a span
+    callbacks = trace_callbacks()
+    if callbacks:
+        config = {**config, "callbacks": callbacks}
     try:
         for mode, chunk in graph.stream(
             stream_input, config, stream_mode=["updates", "messages"]

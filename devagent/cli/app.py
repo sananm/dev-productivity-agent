@@ -58,6 +58,25 @@ def index(
     console.print("[green]done[/green]")
 
 
+@app.command()
+def refresh(
+    source: str = typer.Argument(..., help="source type to re-index: code, doc, issue, commit"),
+    repo: str = typer.Option(None, "--repo", help="owner/name (defaults to DEFAULT_REPO)"),
+) -> None:
+    """Re-index a single source type on demand — no full teardown."""
+    from devagent.ingestion.pipeline import ingest_repo
+    from devagent.rag.corpus import reset_caches
+
+    if source not in ("code", "doc", "issue", "commit"):
+        console.print(f"[red]unknown source '{source}'[/red] — use: code, doc, issue, commit")
+        raise typer.Exit(1)
+    repo = repo or get_settings().default_repo
+    console.print(f"[bold]Refreshing[/bold] {source} for {repo} ...")
+    counts = ingest_repo(repo, source_types=[source])
+    reset_caches()
+    console.print(f"  {source}: {counts.get(source, 0)} chunks  [green]refreshed[/green]")
+
+
 @app.command("validate-rag")
 def validate_rag() -> None:
     """Run the Hit Rate@5 retrieval gate (must pass before agents use the retriever)."""
@@ -72,6 +91,47 @@ def seed_eval() -> None:
     from eval.cases import main as run_seed
 
     run_seed()
+
+
+# --- eval sub-app --------------------------------------------------------
+
+eval_app = typer.Typer(help="Run the benchmarking + evaluation harness.")
+app.add_typer(eval_app, name="eval")
+
+
+@eval_app.command("run")
+def eval_run(
+    full: bool = typer.Option(False, "--full", help="run all 200+ cases (default: sample)"),
+    limit: int = typer.Option(None, "--limit", help="cap the number of cases"),
+    prompt_version: str = typer.Option("v1", "--prompt-version", help="agent prompt version"),
+    compare: tuple[str, str] = typer.Option(
+        (None, None), "--compare", help="compare two prompt versions, e.g. --compare v1 v2"
+    ),
+) -> None:
+    """Run the eval harness — task completion, tool-call accuracy, hallucination.
+
+    With --compare v1 v2, runs the same cases under both prompt versions and
+    prints a metric delta table (the prompt-engineering feedback loop).
+    """
+    from eval.runner import compare as compare_versions
+    from eval.runner import run as run_eval_cli
+
+    if compare and compare[0] and compare[1]:
+        compare_versions(compare[0], compare[1], full=full, limit=limit)
+    else:
+        run_eval_cli(full=full, limit=limit, prompt_version=prompt_version)
+
+
+@eval_app.command("generate")
+def eval_generate(repo: str = typer.Argument(None, help="repo to generate cases from")) -> None:
+    """Expand the golden cases into 200+ generated cases from repo fixtures."""
+    import sys
+
+    from eval.generate import main as run_generate
+
+    if repo:
+        sys.argv = ["generate", repo]
+    run_generate()
 
 
 # --- query command (pure HTTP client) -----------------------------------
