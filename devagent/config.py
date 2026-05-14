@@ -41,6 +41,12 @@ class Settings(BaseSettings):
     ollama_model: str = Field(default="qwen2.5:7b-instruct", alias="OLLAMA_MODEL")
     ollama_host: str = Field(default="http://localhost:11434", alias="OLLAMA_HOST")
 
+    # --- eval judge (LLM-as-judge for the eval harness) ------------------
+    # LLM-judged metrics need a capable model. Defaults to the agent's own LLM,
+    # but a stronger judge (e.g. a larger Ollama model, or OpenAI) gives more
+    # reliable task-completion / faithfulness scores. Empty = use the main LLM.
+    eval_judge_model: str = Field(default="", alias="EVAL_JUDGE_MODEL")
+
     # --- OpenAI (optional LLM + embedding backend) -----------------------
     openai_api_key: str = Field(default="", alias="OPENAI_API_KEY")
     openai_llm_model: str = Field(default="gpt-4o", alias="OPENAI_LLM_MODEL")

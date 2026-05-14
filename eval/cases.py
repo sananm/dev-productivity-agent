@@ -36,6 +36,8 @@ def load_golden() -> list[EvalCase]:
     cases: list[EvalCase] = []
     for path in sorted(GOLDEN_DIR.glob("*.yaml")):
         doc = yaml.safe_load(path.read_text())
+        if not isinstance(doc, dict) or "cases" not in doc:
+            continue  # e.g. retrieval_pairs.yaml — not a case file
         repo = doc["repo"]
         for raw in doc["cases"]:
             cases.append(
