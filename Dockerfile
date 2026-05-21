@@ -12,7 +12,11 @@ RUN pip install --upgrade pip && pip install ".[eval]"
 
 COPY eval ./eval
 COPY fixtures ./fixtures
+COPY docker-entrypoint.sh ./docker-entrypoint.sh
+RUN chmod +x ./docker-entrypoint.sh
 
 EXPOSE 8000
 
-CMD ["uvicorn", "devagent.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# The entrypoint waits for Postgres, migrates, seeds, indexes (first boot only),
+# then serves — so `docker compose up` is the whole demo.
+CMD ["./docker-entrypoint.sh"]

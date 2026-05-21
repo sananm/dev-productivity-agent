@@ -1,5 +1,9 @@
 # Developer Productivity Agent Platform
 
+[![CI](https://github.com/sananm/dev-productivity-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/sananm/dev-productivity-agent/actions/workflows/ci.yml)
+![python](https://img.shields.io/badge/python-3.12-blue)
+![offline](https://img.shields.io/badge/runs-offline%20by%20default-green)
+
 A multi-agent system that turns natural-language developer queries into executed
 GitHub SDLC actions. A **planner** decomposes a query into a multi-step plan, a
 **retriever** pulls context from a hybrid RAG index (code, issues/PRs, docs,
@@ -11,6 +15,35 @@ and hallucination rate across 200+ test cases.
 The platform runs **fully offline by default** — local Ollama LLM, local
 sentence-transformer embeddings, and bundled GitHub fixtures — with no API keys
 and no network. Every external dependency is a pluggable backend.
+
+---
+
+## Demo
+
+```console
+$ devagent ask "How does requests handle HTTP redirects?"
+repo: psf/requests  ·  api: http://localhost:8000
+
+╭───────────────────────────────── Plan ─────────────────────────────────╮
+│  0. [retrieve]  Gather redirect-handling code, docs, and history.       │
+│  1. [answer]    Synthesize the final answer.                            │
+╰─────────────────────────────────────────────────────────────────────────╯
+· retrieved 9 context chunks
+
+──────────────────────────────── Answer ─────────────────────────────────
+requests handles redirects in Session.resolve_redirects, which iterates over
+redirect responses, rebuilds each request, and enforces a max-redirect limit
+(src/requests/sessions.py:133-234). Location redirection is on by default for
+all verbs except HEAD; Response.history records the chain (quickstart.rst) ...
+
+╭──────────────────────────────── Sources ────────────────────────────────╮
+│ src/requests/sessions.py:133-234   docs/user/quickstart.rst   #6660      │
+╰─────────────────────────────────────────────────────────────────────────╯
+```
+
+A write request (`devagent ask "Open an issue about timeout docs"`) instead
+suspends at a confirmation gate showing the exact issue to be created, and only
+calls GitHub after an explicit `y/N`.
 
 ---
 
@@ -26,28 +59,37 @@ and no network. Every external dependency is a pluggable backend.
 
 ## Architecture
 
-```
-                          ┌──────────────┐
-   devagent ask  ──HTTP──▶ │   FastAPI    │  SSE: plan → status → answer tokens
-   (pure HTTP client)      │  /query      │       │ needs_confirmation
-                           │  /confirm    │ ◀──── POST /confirm (approve/reject)
-                           └──────┬───────┘
-                                  │
-                    LangGraph StateGraph (typed AgentState)
-                                  │
-   START ▶ plan ▶ retrieve ▶ execute ──┬─(pending_write)─▶ confirm_gate
-                                       │                       │ interrupt()
-                                       │                  write_executor
-                                       │                       │
-                                       └─(no write)──────▶ synthesize ▶ END
+```mermaid
+flowchart TD
+    CLI["devagent CLI<br/>(pure HTTP client)"] -->|"POST /query · /confirm (SSE)"| API[FastAPI service]
+    API --> G
 
-   plan        planner LLM, CoT structured output, tool-name inference, max 3 retries
-   retrieve    hybrid BM25 + dense retrieval, RRF fusion, source routing
-   execute     read tools run inline (JSONL traces); write tools drafted + suspended
-   confirm_gate  interrupt() — graph checkpoints, waits for POST /confirm
-   write_executor  audit-logged write; honours --dry-run
-   synthesize  source-cited answer grounded only in retrieved + tool context
+    subgraph G["LangGraph StateGraph — typed AgentState, PostgresSaver checkpoints"]
+        direction TB
+        PLAN["plan<br/><i>CoT structured-output plan</i>"] --> RET["retrieve<br/><i>hybrid BM25 + dense, RRF</i>"]
+        RET --> EXE["execute<br/><i>read tools inline · JSONL traces</i>"]
+        EXE -->|no write| SYN["synthesize<br/><i>cited answer</i>"]
+        EXE -->|pending write| GATE["confirm_gate<br/><i>interrupt() — suspend</i>"]
+        GATE -->|approve / reject| WEXE["write_executor<br/><i>audit-logged · --dry-run</i>"]
+        WEXE --> SYN
+    end
+
+    RET <-->|vector + BM25| PG[("PostgreSQL<br/>pgvector + checkpoints")]
+    EXE -->|read tools| GH[("GitHub<br/>fixtures │ live API")]
+    WEXE -->|write tools| GH
+    PLAN -.->|LLM| LLM[["Ollama │ OpenAI"]]
+    SYN -.->|LLM| LLM
+    RET -.->|embeddings| EMB[["local │ OpenAI"]]
 ```
+
+| Node | Role |
+|---|---|
+| **plan** | planner LLM, CoT structured output, tool-name inference, ≤3 retries |
+| **retrieve** | hybrid BM25 + dense retrieval, RRF fusion, source routing, repo scoping |
+| **execute** | read tools run inline (JSONL traces); write tools drafted + suspended |
+| **confirm_gate** | `interrupt()` — graph checkpoints to Postgres, waits for `POST /confirm` |
+| **write_executor** | audit-logged write; honours `--dry-run`; ≤5 tool steps |
+| **synthesize** | source-cited answer grounded only in retrieved + tool context |
 
 ### Pluggable backends
 
@@ -64,8 +106,25 @@ Switch any backend via `.env` — no code changes.
 
 ## Quick start
 
-Prerequisites: Docker, Python 3.12, [`uv`](https://docs.astral.sh/uv/), and
-[Ollama](https://ollama.com) (`ollama pull qwen2.5:7b-instruct`).
+Prerequisites: Docker, [Ollama](https://ollama.com)
+(`ollama pull qwen2.5:7b-instruct`), and — for local dev — Python 3.12 +
+[`uv`](https://docs.astral.sh/uv/).
+
+### Fastest: one command
+
+```bash
+ollama pull qwen2.5:7b-instruct        # the only manual prerequisite
+docker compose up                      # Postgres + API; auto-migrates, seeds, indexes
+# ... wait for "[entrypoint] starting API on :8000", then:
+curl -N -X POST localhost:8000/query -H 'content-type: application/json' \
+  -d '{"query":"How does requests handle HTTP redirects?"}'
+```
+
+`docker compose up` builds the API image, waits for Postgres, applies the schema,
+seeds the eval cases, indexes the default repo, and serves — no other setup. The
+local CLI below is optional sugar over the same API.
+
+### Local dev (CLI + hot iteration)
 
 ```bash
 # 1. environment

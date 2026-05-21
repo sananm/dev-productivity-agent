@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # Real Postgres + pgvector — the pipeline exercises the actual data layer.
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: devagent
+          POSTGRES_PASSWORD: devagent
+          POSTGRES_DB: devagent
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U devagent"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 15
+
+    env:
+      DATABASE_URL: postgresql://devagent:devagent@localhost:5432/devagent
+      # Offline backends only — CI needs no API keys and no Ollama. The agent
+      # graph (which needs an LLM) isn't run here; we test the data + RAG layers.
+      LLM_BACKEND: mock
+      EMBEDDING_BACKEND: local
+      GITHUB_MODE: fixtures
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up environment
+        run: |
+          uv venv --python 3.12
+          uv pip install -e ".[eval]"
+
+      - name: Schema + data layer (offline ingestion)
+        run: |
+          uv run python -m devagent.db.migrate
+          uv run python -m eval.cases
+          uv run python -m eval.generate
+          uv run python -m devagent.cli.app index psf/requests
+
+      - name: Retrieval quality gate (Hit Rate@5 >= 0.75)
+        run: uv run python -m devagent.rag.validate
+
+      - name: Dataset + import checks
+        run: |
+          uv run python -m pytest eval/test_eval.py::test_cases_seeded -q
+          uv run python -c "import devagent.agents.graph, devagent.api.main, devagent.tools.registry; print('imports ok')"
