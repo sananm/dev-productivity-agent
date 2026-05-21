@@ -143,9 +143,11 @@ class HybridRetriever:
         sources = source_types or route_sources(query)
         n_candidates = top_k * self._candidate_multiplier
 
+        # When a repo is given, scope retrieval to it so a multi-repo index
+        # doesn't bleed chunks from other repos into the answer.
         query_embedding = self._embedder.get_query_embedding(query)
-        dense = dense_search(query_embedding, n_candidates, sources)
-        sparse = bm25_search(query, n_candidates, sources)
+        dense = dense_search(query_embedding, n_candidates, sources, repo=repo)
+        sparse = bm25_search(query, n_candidates, sources, repo=repo)
 
         ranked_lists = [dense, sparse]
 

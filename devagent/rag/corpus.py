@@ -75,14 +75,19 @@ def _bm25_index() -> tuple[BM25Okapi, tuple[Chunk, ...]]:
 
 
 def bm25_search(
-    query: str, k: int, source_types: tuple[str, ...] | None = None
+    query: str,
+    k: int,
+    source_types: tuple[str, ...] | None = None,
+    repo: str | None = None,
 ) -> list[tuple[Chunk, float]]:
-    """Top-k chunks by Okapi BM25 score, optionally restricted by source type."""
+    """Top-k chunks by Okapi BM25 score, optionally restricted by source type and repo."""
     bm25, corpus = _bm25_index()
     scores = bm25.get_scores(_tokenize(query))
     ranked = sorted(zip(corpus, scores), key=lambda cs: cs[1], reverse=True)
     if source_types:
         ranked = [cs for cs in ranked if cs[0].source_type in source_types]
+    if repo:
+        ranked = [cs for cs in ranked if cs[0].metadata.get("repo") == repo]
     return ranked[:k]
 
 
@@ -91,7 +96,10 @@ def _vector_literal(embedding: list[float]) -> str:
 
 
 def dense_search(
-    query_embedding: list[float], k: int, source_types: tuple[str, ...] | None = None
+    query_embedding: list[float],
+    k: int,
+    source_types: tuple[str, ...] | None = None,
+    repo: str | None = None,
 ) -> list[tuple[Chunk, float]]:
     """Top-k chunks by cosine similarity on the HNSW-indexed embedding column."""
     vec = _vector_literal(query_embedding)
@@ -101,9 +109,15 @@ def dense_search(
         f"FROM {VECTOR_TABLE} "
     )
     params: list = [vec]
+    where = []
     if source_types:
-        sql += "WHERE metadata_->>'source_type' = ANY(%s) "
+        where.append("metadata_->>'source_type' = ANY(%s)")
         params.append(list(source_types))
+    if repo:
+        where.append("metadata_->>'repo' = %s")
+        params.append(repo)
+    if where:
+        sql += "WHERE " + " AND ".join(where) + " "
     sql += "ORDER BY embedding <=> %s::vector LIMIT %s"
     params += [vec, k]
     rows = fetch_all(sql, tuple(params))

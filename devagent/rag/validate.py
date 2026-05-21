@@ -37,11 +37,12 @@ def _hit(chunk: RetrievedChunk, expected_file: str | None, expected_substring: s
 def run_validation(*, verbose: bool = True) -> float:
     spec = yaml.safe_load(PAIRS_PATH.read_text())
     pairs = spec["pairs"]
+    repo = spec.get("repo")
     retriever = HybridRetriever()
 
     hits = 0
     for pair in pairs:
-        results = retriever.retrieve(pair["query"], top_k=TOP_K, allow_fresh=False)
+        results = retriever.retrieve(pair["query"], top_k=TOP_K, repo=repo, allow_fresh=False)
         hit = any(
             _hit(c, pair.get("expected_file"), pair.get("expected_substring"))
             for c in results
