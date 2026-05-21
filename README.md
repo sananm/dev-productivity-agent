@@ -201,11 +201,21 @@ Three metrics per case:
 - **faithfulness** — DeepEval `FaithfulnessMetric` (1 − hallucination rate),
   checked against retrieved context + tool/write results.
 
-Writes are mocked during eval — no run mutates GitHub. Sample run with the
-default local 7B judge: tool_correctness **0.92**, task_completion **0.86**,
-faithfulness **0.44**. The LLM-judged metrics are judge-bound — a 7B model is a
-weak faithfulness judge; set `EVAL_JUDGE_MODEL` to a larger model (or
-`LLM_BACKEND=openai`) for production-grade scores.
+Writes are mocked during eval — no run mutates GitHub. Sample-run scores (the
+agent runs on the local 7B model in both columns; only the judge changes):
+
+| metric | 7B judge | 14B judge |
+|---|---|---|
+| tool-correctness (deterministic) | 0.92 | 0.92 |
+| task completion | 0.86 | 0.77 |
+| faithfulness (1 − hallucination) | 0.44 | **0.91** |
+
+The deterministic metric is stable; the LLM-judged metrics are **judge-bound** —
+a 7B model is a weak faithfulness judge (it mis-flags correct, grounded
+statements), so faithfulness reads artificially low. Swapping in a 14B judge
+(`EVAL_JUDGE_MODEL=qwen2.5:14b-instruct`) lifts faithfulness to 0.91 and is
+stricter on task completion. Use `LLM_BACKEND=openai` for production-grade
+judging. This is exactly why the judge is a separate, swappable backend.
 
 ### Prompt engineering loop
 
