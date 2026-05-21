@@ -125,13 +125,17 @@ def eval_run(
 @eval_app.command("generate")
 def eval_generate(repo: str = typer.Argument(None, help="repo to generate cases from")) -> None:
     """Expand the golden cases into 200+ generated cases from repo fixtures."""
-    import sys
+    from devagent.config import get_settings
+    from eval.cases import upsert_cases
+    from eval.generate import generate
 
-    from eval.generate import main as run_generate
-
-    if repo:
-        sys.argv = ["generate", repo]
-    run_generate()
+    repo = repo or get_settings().default_repo
+    cases = generate(repo)
+    n = upsert_cases(cases)
+    by_cat: dict[str, int] = {}
+    for c in cases:
+        by_cat[c.category] = by_cat.get(c.category, 0) + 1
+    console.print(f"[green]generated {n} cases[/green] for {repo}: {by_cat}")
 
 
 # --- query command (pure HTTP client) -----------------------------------
