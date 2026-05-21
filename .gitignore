@@ -30,3 +30,6 @@ traces/
 
 # Planning (legacy GSD artifacts — discarded)
 .planning/
+
+# Personal interview-prep docs (kept local, not published)
+docs/
